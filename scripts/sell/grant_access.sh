@@ -10,7 +10,7 @@ ENV_FILE="$HERE/.env"
 REPO=""
 
 [ -f "$ENV_FILE" ] && . "$ENV_FILE"
-[ -z "$REPO" ] && { echo "LỖI: thiếu REPO trong $ENV_FILE (vd REPO=hedracentral9999/eskill)"; exit 1; }
+[ -z "$REPO" ] && { echo "LỖI: thiếu REPO trong $ENV_FILE (vd REPO=<owner>/<repo>)"; exit 1; }
 
 action="${1:-}"
 user="${2:-}"

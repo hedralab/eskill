@@ -63,7 +63,7 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 ## Giới hạn (trung thực — khi nào KHÔNG dùng)
 
 - Skill **không thay thế test trên máy thật** của user — eval loop là agent chạy thử, user vẫn phải tự verify trên môi trường thật
-- Skill quốc tế → SKILL.md + README nên viết tiếng Anh (eskill bản VN là chuẩn nội bộ Hedra)
+- Skill quốc tế → SKILL.md + README nên viết tiếng Anh (eskill bản VN là chuẩn nội bộ của tác giả)
 
 ## References
 

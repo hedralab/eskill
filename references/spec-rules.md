@@ -18,7 +18,7 @@ name: pdf-processing
 description: Trích text PDF, điền form, gộp file. Dùng khi xử lý tài liệu PDF.
 license: MIT
 metadata:
-  author: hedra
+  author: <your-name>
   version: "1.0"
 ---
 ```

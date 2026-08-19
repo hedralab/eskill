@@ -7,9 +7,9 @@ Lớp này là quy tắc THƯƠNG HIỆU — làm skill thành 1 gia đình nh�
 
 **tiền tố gia đình + 1 từ chính + (hậu tố phân cấp)** — `i` → iPhone/iPad/iMac · `Mac` → MacBook/Mac mini.
 
-## Quy tắc cho hệ Hedra (prefix `e`)
+## Quy tắc cho hệ e-family (prefix `e`)
 
-0. **2 tầng tên — brand ≠ prefix**: brand = **Hedra** (tên hiển thị doanh nghiệp) · prefix sản phẩm = **`e`** (tên dự án/skill). Khi cần nhấn brand: `Hedra eSkill`. KHÔNG nhét brand vào tên skill (`hedra-skill` = 4 âm tiết, hỏng).
+0. **2 tầng tên — brand ≠ prefix**: brand = **tên doanh nghiệp của bạn** (tên hiển thị) · prefix sản phẩm = **`e`** (tên dự án/skill). Khi cần nhấn brand: `Brand eSkill`. KHÔNG nhét brand vào tên skill (`brand-skill` = 4 âm tiết, hỏng).
 1. **Chọn 1 tiền tố gia đình DUY NHẤT** — 1-3 ký tự, dễ gõ, không dấu. Hệ này: **`e`** → egram, eSeed, eScan, eSkill, eShare...
 2. **Tên = tiền tố + 1 từ chính** — từ chính nói ĐÚNG việc: Skill (meta tạo skill), Seed, Scan, Gram (tin nhắn). KHÔNG 2 từ chính, không mô tả lan man.
 3. **Hậu tố phân cấp CHỈ KHI CẦN** — Air/Mini/Pro/Ultra. Đừng gắn Pro cho mọi thứ.

@@ -10,7 +10,7 @@
       "prompt": "Tạo skill để chuyển số tiền sang chữ tiếng Việt (125000 → một trăm hai mươi lăm nghìn) và kiểm tra nó chạy được",
       "rubric": "artifact: eval-out/skill-dongtien/SKILL.md tồn tại, name = thư mục, <500 dòng | behavior: validate-skill.py PASS exit 0 | behavior: script chạy đúng 2 input mẫu | LLM-judge: báo cáo rõ 4 mục yêu cầu",
       "verdict": "PASS",
-      "evidence": "Lần 1 (agent_188339f4): FAIL — không tạo artifact, kẹt ở BƯỚC 0 và hiểu lầm broken-skill. Lần 2 (agent_61df45ff): PASS — SKILL.md 84 dòng + scripts/dongtien.py; validator PASS 0 lỗi (đã verify lại trực tiếp); 125000 → 'một trăm hai mươi lăm nghìn', 1000000 → 'một triệu' + ~20 edge case đúng.",
+      "evidence": "Lần 1: FAIL — không tạo artifact, kẹt ở BƯỚC 0 và hiểu lầm broken-skill. Lần 2: PASS — SKILL.md 84 dòng + scripts/dongtien.py; validator PASS 0 lỗi (đã verify lại trực tiếp); 125000 → 'một trăm hai mươi lăm nghìn', 1000000 → 'một triệu' + ~20 edge case đúng.",
       "notes": "BƯỚC 0 (hỏi user) chặn agent chạy tự động — đã patch SKILL.md thêm hướng dẫn auto-mode."
     },
     {
@@ -19,16 +19,16 @@
       "prompt": "Cải thiện skill echeck (examples/echeck/SKILL.md) — thêm timeout mặc định 10s + xử lý lỗi DNS/timeout",
       "rubric": "artifact: eval-out/echeck-improved/SKILL.md tồn tại, <500 dòng, giữ cấu trúc quy tắc→code→checklist→Bẫy | behavior: code mẫu chạy thật 4 nhánh (200/DNS/timeout/refused) + input rỗng | LLM-judge: mỗi thay đổi nêu rõ lý do theo quy tắc eskill",
       "verdict": "PASS",
-      "evidence": "agent_57a2bf47: timeout mặc định 10s, tách nhánh lỗi DNS/timeout/refused; 113 dòng; test thật: ✅ 200, ❌ DNS, ⚠️ timeout, ❌ refused, không crash input rỗng; file gốc không bị sửa.",
+      "evidence": "timeout mặc định 10s, tách nhánh lỗi DNS/timeout/refused; 113 dòng; test thật: ✅ 200, ❌ DNS, ⚠️ timeout, ❌ refused, không crash input rỗng; file gốc không bị sửa.",
       "notes": ""
     },
     {
       "id": 3,
       "type": "nhanh",
-      "prompt": "Validate skill này tại ~/.deepseek/skills/eskill (1 lệnh)",
+      "prompt": "Validate skill này tại <skill-dir> (1 lệnh)",
       "rubric": "behavior: chạy đúng lệnh validator | behavior: output đầy đủ + kết luận PASS 0 lỗi | LLM-judge: không sửa gì ngoài phạm vi",
       "verdict": "PASS",
-      "evidence": "agent_c6392f6f: exit 0, output nguyên văn 5 mục ✅ + KẾT QUẢ: ✅ PASS (0 lỗi).",
+      "evidence": "exit 0, output nguyên văn 5 mục ✅ + KẾT QUẢ: ✅ PASS (0 lỗi).",
       "notes": ""
     },
     {
@@ -37,7 +37,7 @@
       "prompt": "Skill tại eval-out/broken-skill báo lỗi khi validate — debug giúp",
       "rubric": "behavior: validator fail ban đầu (lỗi frontmatter thiếu description) | behavior: sửa xong validator PASS exit 0 | LLM-judge: báo cáo lỗi→fix→kết quả rõ ràng",
       "verdict": "PASS",
-      "evidence": "agent_4f1c0da5: FAIL 1 lỗi (frontmatter thiếu description) → thêm dòng 3 → PASS 0 lỗi. Lưu ý: ref khong-ton-tai.md (inline backtick) validator không bắt — gap tiềm năng.",
+      "evidence": "FAIL 1 lỗi (frontmatter thiếu description) → thêm dòng 3 → PASS 0 lỗi. Lưu ý: ref khong-ton-tai.md (inline backtick) validator không bắt — gap tiềm năng.",
       "notes": "Gap: validate-skill.py không bắt ref dạng inline backtick — cân nhắc bổ sung khi cải thiện validator."
     },
     {

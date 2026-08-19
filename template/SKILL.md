@@ -7,7 +7,7 @@ description: >               # ← ĐỔI: ≤1024 ký tự — "làm gì" + "kh
 # license: MIT              # ← tùy chọn: tên license (bán thương mại thì BẮT BUỘC)
 # compatibility:            # ← tùy chọn: yêu cầu môi trường (chỉ khi thật cần)
 # metadata:                 # ← tùy chọn: author, version... (đăng chợ: display_name eFamily)
-#   author: hedra
+#   author: <your-name>
 #   version: "1.0"
 ---
 

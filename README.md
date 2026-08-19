@@ -3,7 +3,7 @@
 eSkill is the **skill for creating skills** — a production workflow distilled from the
 official [Agent Skills spec](https://agentskills.io/specification), Anthropic's
 [skill-creator](https://github.com/anthropics/skills) eval loop, and real lessons from
-building/shipping [egram](https://github.com/hedracentral9999/egram) + the eSeed project.
+building/shipping egram + the eSeed project.
 
 ## What it gives you
 

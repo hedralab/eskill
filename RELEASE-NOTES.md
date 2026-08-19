@@ -3,6 +3,11 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [1.4.1] — 2026-08-20
+
+### Updated
+- market-research.md theo audit đội chuyên gia: thêm Google Trends/X/Product Hunt/newsletter · storefront thay thế (Lemon Squeezy/Paddle/Ko-fi/BMAC/AppSumo) · bỏ Telegram Stars + MCP dirs khỏi ưu tiên · fix mâu thuẫn funnel bán · quy tắc kèm URL nguồn
+
 ## [1.4.0] — 2026-08-20
 
 ### Added

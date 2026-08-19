@@ -2,7 +2,7 @@
 
 Lỗi kinh điển: build skill xong mới hỏi có ai cần không. Trụ 11 đảo ngược: nghiên cứu trước, build sau. Bằng chứng 2026-08: top-1 skill thế giới = obra/superpowers (274K ⭐) và mattpocock/skills (223K ⭐) — cả hai bắt đầu từ nỗi đau của CHÍNH TÁC GIẢ, không phải đoán thị trường.
 
-## 1. Năm nỗi đau người dùng phổ biến nhất (research Reddit/HN/PromptBase 2026-08)
+## 1. Năm nỗi đau người dùng phổ biến nhất (research Reddit/HN/PromptBase/X/Google Trends 2026-08)
 
 1. **Skill bị model bỏ qua** — skill chỉ advisory, model không tự gọi → mất niềm tin. Fix: description trigger mạnh + script deterministic + test thật skill có được gọi không.
 2. **Nhầm lẫn khái niệm** — skills vs MCP vs subagents vs commands vs plugins. Fix: SKILL.md nêu rõ khi nào dùng / khi nào KHÔNG (mục Giới hạn).
@@ -10,16 +10,18 @@ Lỗi kinh điển: build skill xong mới hỏi có ai cần không. Trụ 11 �
 4. **Decay** — skill cũ, docs lỗi thời. Fix: version + RELEASE-NOTES + cập nhật định kỳ.
 5. **Bảo mật** — skill = script thực thi, sợ RCE / prompt injection. Fix: code review sạch, tối giản quyền, mục an toàn khi cài.
 
+Nguồn bổ sung: X/Twitter (trend AI) · Product Hunt (test demand lúc launch) · Google Trends (đo volume tìm kiếm) · newsletter AI (The Rundown, Matt Wolfe).
+
 ## 2. Kênh phân phối ngoài GitHub (research 2026-08 — có bằng chứng)
 
 - **PromptBase** — kênh DUY NHẤT bán skill.md end-to-end hiện tại: 450K+ users, 2,200+ sellers, 20% phí chợ / 0% link riêng, thanh toán Stripe
 - **skills.sh (Vercel)** — discovery + cài 1 lệnh: 8,420 skill, 1.26M installs all-time, miễn phí
 - **Claude Code / Codex / Cursor marketplace** — native-install; Codex qua review OpenAI, Cursor bắt buộc open-source, Claude mở marketplace.json không phí
 - **Gumroad** — storefront tự bán: 10% + $0.50 (30% nếu qua Discover)
-- **Telegram Stars** — bán trong bot: 400M+ user bot/tháng
-- **MCP directories (mcp.so / Glama / Arcade.dev)** — cho MCP server, mcp.so có paid placement
+- **Lemon Squeezy / Paddle / Ko-fi / Buy Me a Coffee / AppSumo** — storefront thay thế: phí kiểm tra trên trang chủ khi dùng
+- Telegram Stars + MCP directories (mcp.so/Glama/Arcade.dev): CHỈ khi sản phẩm thật là bot/MCP — ngoài scope skill, không ưu tiên
 
-Kết luận: GitHub = trust + discovery. PromptBase = kênh bán duy nhất. Gumroad = bán trực tiếp khi có traffic. KHÔNG bán được ngay trên GitHub (không có cổng thanh toán).
+Kết luận: GitHub = trust + discovery. PromptBase = kênh bán skill.md sẵn có. Gumroad/Lemon Squeezy = bán trực tiếp khi có traffic. Bán access repo thì dùng funnel Telegram + OKX + GitHub (chi tiết: ban-tren-github.md). KHÔNG bán được ngay trên GitHub (không có cổng thanh toán).
 
 ## 3. Top-1 làm gì đúng (benchmark obra/superpowers + mattpocock/skills)
 
@@ -46,13 +48,13 @@ Kết luận: GitHub = trust + discovery. PromptBase = kênh bán duy nhất. Gu
 - Prompt lẻ: $5-15 · Bundle hệ thống (prompt + workflow + template): $29-69 · Membership: $9-19/tháng
 - Người mua trả tiền cho BUNDLE giải quyết 1 nỗi đau — không trả cho prompt lẻ
 - Thu nhập thực: beginner $100-500/tháng · niche + direct + subscription: $2K-15K/tháng
-- Margin: direct ~3% phí xử lý vs PromptBase 20% vs Gumroad 10%+$0.50
+- Margin: direct ~3% phí xử lý vs PromptBase 20% vs Gumroad 10%+$0.50 · mọi con số dùng quyết định PHẢI kèm URL nguồn
 
 ## 5. Demand validation — 5 cách có bằng chứng
 
 1. Founder-pain test: chính tôi có dùng nó hằng tuần không? (PromptBase, superpowers đều từ đây)
 2. Pre-sale: bán trước khi build — có người trả tiền = demand thật (Marc Lou pattern)
-3. Signal scan: Reddit/HN/search — người ta có đang đau vì vấn đề này?
+3. Signal scan: Reddit/HN/Google Trends/X/search — người ta có đang đau vì vấn đề này?
 4. Mom Test: hỏi CUỘC SỐNG, không hỏi anh có cần không (chi tiết: sales-discovery.md)
 5. Waitlist / landing page: đo conversion trước khi tốn công build
 

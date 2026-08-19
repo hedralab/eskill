@@ -67,8 +67,25 @@ Quy trình: sửa xong → bump `.version-bump.json` → cập nhật RELEASE-NO
 
 ## Install
 
+Recommended — one command via [skills.sh](https://skills.sh):
+
 ```bash
-cp -R eskill ~/.deepseek/skills/eskill    # or ~/.claude/skills/eskill
+npx skills add hedralab/eskill
+```
+
+Claude Code — plugin marketplace:
+
+```
+/plugin marketplace add hedralab/eskill
+/plugin install eskill
+```
+
+Manual — copy the folder into your agent skills dir:
+
+```bash
+cp -R eskill ~/.deepseek/skills/eskill    # DeepSeek TUI
+# or ~/.claude/skills/eskill
+# or ~/.codex/skills/eskill
 ```
 
 ## License

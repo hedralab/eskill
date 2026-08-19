@@ -113,3 +113,24 @@ Cấu trúc 1 trang (đúng thứ tự):
 - **1 trang, số cụ thể** — không mô tả chung chung; mọi luận điểm có số hoặc nguồn
 
 MECE test sau khi viết xong: gộp 2 nhóm trùng → bỏ nhóm không liên quan → thêm nhóm thiếu → mỗi câu tự hỏi Vậy thì sao?
+
+## 8. Nghiên cứu INSIGHT — nỗi đau là TRIỆU CHỨNG, insight là GỐC RỄ
+
+Nỗi đau trả lời CÁI GÌ (skill bị model bỏ qua). Insight trả lời VÌ SAO (người dùng không TIN skill vì không thấy nó được gọi — vấn đề trust, không phải tính năng). Build theo pain = vá triệu chứng. Build theo insight = trúng gốc rễ.
+
+4 phương pháp đào insight (có bằng chứng):
+
+1. **JTBD — phỏng vấn theo JOB, không theo giải pháp**: hỏi KHI nào + MUỐN làm gì + ĐỂ đạt kết quả gì. Không hỏi anh muốn tính năng nào. Bằng chứng: obra/superpowers thắng vì bắt đúng job cải thiện quy trình code hằng ngày, không phải thêm tính năng X.
+2. **5 Whys — đào từ pain xuống gốc**: pain #1 (model bỏ qua skill) → vì sao → description không trigger → vì sao → skill viết chung chung, không nêu khi nào dùng → INSIGHT: skill phải có trigger mạnh + script deterministic + smoke test chứng minh.
+3. **Behavioral observation — nhìn họ LÀM, không hỏi họ MUỐN**: người ta không cài skill, họ copy-paste SKILL.md vào project → insight: friction khi cài là rào cản thật → fix: cài 1 lệnh.
+4. **Outcome-driven — hỏi kết quả đo được**: tiết kiệm bao nhiêu giờ/tuần, giảm bao nhiêu lỗi — không hỏi chức năng. Kết quả đo được = căn cứ định giá.
+
+Công thức câu insight (đủ 4 phần mới là insight):
+Khi [tình huống], người dùng muốn [job] để [kết quả đo được], nhưng bị chặn bởi [rào cản] vì [nguyên nhân gốc].
+
+Ví dụ: Khi tạo skill, người dùng muốn nó tự chạy đúng quy trình để tiết kiệm 2h/ngày, nhưng model không gọi skill vì description không trigger → giải pháp: description pushy + script deterministic + smoke test.
+
+Checklist insight:
+- [ ] Với MỖI pain: đã đào 1 insight (nguyên nhân gốc) chưa?
+- [ ] Câu insight đủ 4 phần theo công thức?
+- [ ] Quyết định build dựa trên insight, không chỉ pain?

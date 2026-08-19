@@ -3,6 +3,11 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [1.4.0] — 2026-08-20
+
+### Added
+- market-research.md Section 8: Nghiên cứu INSIGHT (JTBD + 5 Whys + behavioral observation + outcome-driven) — nỗi đau là triệu chứng, insight là gốc rễ
+
 ## [1.3.0] — 2026-08-19
 
 ### Added

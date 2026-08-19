@@ -3,6 +3,12 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [1.2.0] — 2026-08-19
+
+### Added
+- market-research.md Section 6: Post-launch measurement (skills.sh telemetry, GitHub API, kill/pivot/continue)
+- market-research.md Section 7: Research → Plan (Minto Pyramid + SCQA + MECE + JTBD)
+
 ## [1.1.0] — 2026-08-19
 
 ### Added

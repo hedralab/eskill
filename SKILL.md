@@ -10,7 +10,7 @@ license: MIT
 compatibility: Python 3.10+
 metadata:
   author: hedra
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # eskill — Quy trình tạo Agent Skill (11 trụ cột)

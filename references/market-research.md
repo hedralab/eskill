@@ -66,3 +66,50 @@ Kết luận: GitHub = trust + discovery. PromptBase = kênh bán duy nhất. Gu
 - [ ] Chọn kênh ≥2: GitHub (trust) + PromptBase (bán) + Gumroad (direct)
 - [ ] Demand test tối thiểu TRƯỚC khi build 200 dòng
 - [ ] Kế hoạch cập nhật (version + changelog) từ ngày đầu
+
+## 6. Post-launch measurement — đo sau khi ship (đừng tự xây telemetry, dùng thứ CÓ SẴN)
+
+Telemetry ĐÃ tồn tại, public, không cần tự làm:
+- **skills.sh** — install count dedup, trending 24h, hot view, weekly sparkline, README badge, public API /api/v1. Số thật 2026-08: npm skills CLI 38.6M downloads/30 ngày · mattpocock 16.7M installs / 51 skills · top skill find-skills 3.0M installs
+- **GitHub API** — stars/forks/open issues (public, không cần token) · traffic 14 ngày: clones/views/referrers (cần token)
+- **PromptBase** — sales + reviews (kênh bán duy nhất, số liệu bán thật)
+- **npm** — downloads/tháng cho package
+
+Feedback channel hiệu quả: GitHub Issues + Discussions (anthropics/skills 1,120 issues mở · mattpocock 370) · HN · r/ClaudeAI · Discord
+
+Nhịp review (tooling đã mã hóa sẵn):
+- Mỗi tuần: install sparkline + trending — có tăng không
+- Mỗi tháng: sales + issues mới + churn — ai gỡ cài / báo lỗi gì
+- Mỗi release: changelog + đối chiếu feedback cũ đã fix chưa
+
+Quyết định (tiếp tục / pivot / kill):
+- **Tiếp tục**: installs tăng 2 tuần liên tiếp + feedback tích cực + sales > 0
+- **Pivot**: installs ổn nhưng churn cao, hoặc 1 feature được hỏi lặp lại 3+ lần
+- **Kill**: 60 ngày không có install mới + không ai hỏi → đóng, học bài học, chuyển nguồn lực
+
+Thực tế top creator: ship liên tục — cả 3 repo đầu bảng đều có commit trong 7 ngày gần nhất. Repo chết = không cập nhật.
+
+## 7. Research → Plan — trình bày logic, dễ hiểu (top-1: Minto Pyramid Principle, McKinsey)
+
+Kết quả nghiên cứu phải thành 1 trang plan. Framework top-1: Pyramid Principle của Barbara Minto (McKinsey) — kết luận trước, nhóm luận điểm MECE, mở đầu SCQA, ngôn ngữ JTBD. SCQA + MECE + Pyramid là MỘT hệ (Minto phát triển MECE để phục vụ Pyramid).
+
+Cấu trúc 1 trang (đúng thứ tự):
+
+1. **ANSWER — kết luận trước** (1 câu): Làm X cho Y vì Z. Vd: làm skill X cho lập trình viên nhúng vì họ tốn 10h/tuần cho việc Y.
+2. **SCQA — mở đầu** (4 dòng):
+   - Situation: thị trường Agent Skills bùng nổ, cài bằng 1 lệnh
+   - Complication: hầu hết skill generic, không giải quyết nỗi đau cụ thể
+   - Question: làm skill gì để thắng được?
+   - Answer: chính là câu ở mục 1
+3. **Nhóm luận điểm MECE** (3-4 nhóm, không chồng lấn, đủ phủ):
+   - Thị trường & nhu cầu · Đối thủ & gap · Kênh & giá · Rủi ro
+   - Mỗi nhóm 2-3 dòng + số liệu + nguồn
+4. **Rủi ro + cách giảm** — 3 rủi ro lớn nhất, mỗi cái 1 hành động giảm
+5. **Next actions** — 3-5 bước, mỗi bước 1 dòng: việc + deadline + người làm
+
+3 quy tắc dễ hiểu:
+- **Kết luận trước** — người đọc biết đáp án trong 5 giây, chi tiết phía sau
+- **Ngôn ngữ đời thường** — không biệt ngữ; cần thuật ngữ thì định nghĩa 1 lần
+- **1 trang, số cụ thể** — không mô tả chung chung; mọi luận điểm có số hoặc nguồn
+
+MECE test sau khi viết xong: gộp 2 nhóm trùng → bỏ nhóm không liên quan → thêm nhóm thiếu → mỗi câu tự hỏi Vậy thì sao?

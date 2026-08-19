@@ -10,12 +10,12 @@ license: MIT
 compatibility: Python 3.10+
 metadata:
   author: hedra
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
-# eskill — Quy trình tạo Agent Skill (10 trụ cột)
+# eskill — Quy trình tạo Agent Skill (11 trụ cột)
 
-## 10 trụ cột — mỗi trụ 1 kim chỉ nam top-1
+## 11 trụ cột — mỗi trụ 1 kim chỉ nam top-1
 
 ```
 1. Core         · agentskills.io spec      — format chuẩn (frontmatter, progressive disclosure, refs 1 cấp)
@@ -28,6 +28,7 @@ metadata:
 8. Tăng trưởng  · AARRR                    — description chống undertrigger, adoption
 9. Thương mại   · OKX                      — leak scan, LICENSE, marketplace, PnL bán skill
 10. Tư vấn      · SPIN + Mom Test          — hỏi đúng nỗi đau, skill theo đúng ý user
+11. Thị trường · JTBD + Mom Test + Demand Validation — research trước, build sau
 ```
 
 ## Quickstart (3 câu — user mới bắt đầu từ đây)
@@ -40,7 +41,7 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 
 ## 6 bước — BƯỚC 0 quan trọng nhất
 
-1. **BƯỚC 0 — Tư vấn trước, không đoán (Trụ 10 — sales-discovery.md)**: trích mục tiêu từ hội thoại hiện có TRƯỚC (tool đã dùng, thứ tự, input/output, lỗi user sửa). Hỏi 1 câu/lượt, tối đa 6 câu theo chuỗi SPIN (S tình huống → P nỗi đau → I hệ quả → N giá trị) + Mom Test (hỏi CUỘC SỐNG họ, không hỏi "anh có cần...?"). Tóm tắt gap (hiện tại → mong muốn → rào cản) cho user XÁC NHẬN trước khi viết — skill build theo câu trả lời của user, không theo giả định model. **Chế độ tự động (không có user để trả lời): tự quyết từ thông tin có sẵn rồi TIẾN HÀNH — đừng dừng chờ hỏi (đã vấp: agent kẹt cứng ở BƯỚC 0 khi không có user — forward-test 2026-08-19).**
+1. **BƯỚC 0 — Tư vấn trước, không đoán (Trụ 10 — sales-discovery.md)**: trích mục tiêu từ hội thoại hiện có TRƯỚC (tool đã dùng, thứ tự, input/output, lỗi user sửa). Hỏi 1 câu/lượt, tối đa 6 câu theo chuỗi SPIN (S tình huống → P nỗi đau → I hệ quả → N giá trị) + Mom Test (hỏi CUỘC SỐNG họ, không hỏi "anh có cần...?"). Tóm tắt gap (hiện tại → mong muốn → rào cản) cho user XÁC NHẬN trước khi viết — skill build theo câu trả lời của user, không theo giả định model. **Chế độ tự động (không có user để trả lời): tự quyết từ thông tin có sẵn rồi TIẾN HÀNH — đừng dừng chờ hỏi (đã vấp: agent kẹt cứng ở BƯỚC 0 khi không có user — forward-test 2026-08-19).** **(Nếu build skill bán: làm Trụ 11 — nghiên cứu thị trường TRƯỚC, xem `references/market-research.md`)**
 2. **Chọn kim chỉ nam**: mỗi mảng lớn = 1 chuẩn ĐÃ CHỨNG MINH, không viết theo ý kiến. Egram đã dùng: BotFather · Apple HIG · Stripe · Telegram docs · 12-Factor · GitHub Actions · Apple Writing · AARRR · OKX. Tìm nguồn: docs chính thức + `gh search repos --sort stars`.
 3. **Viết SKILL.md theo spec** (chi tiết: `references/spec-rules.md`):
    - Frontmatter: `name` (1-64, chữ thường + gạch nối, **= tên thư mục**) · `description` ≤1024 ký tự — nêu CẢ "làm gì" LẪN "khi nào dùng", kèm trigger keyword, viết "pushy" (chống undertrigger — Claude có xu hướng không bật skill dù cần)
@@ -83,3 +84,5 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 - `examples/echeck/` — SKILL MẪU HOÀN CHỈNH (kiểm tra URL sống) — hình mẫu đối chiếu cho mọi skill tạo ra
 - `scripts/validate-skill.py` — validator: frontmatter, quy tắc name, độ dài, refs; `--leak` quét rò rỉ; `--brand "a,b"` quét brand nội bộ
 - `scripts/eval-skill.py` — eval harness: static check + test set versioned (eval-results.json) + trace verdict · `--verify` tổng kết pass rate/trigger rate + rubric bắt buộc per case
+
+- `references/market-research.md` — Trụ 11: research trước build sau (nỗi đau user, kênh phân phối, pricing, demand validation)

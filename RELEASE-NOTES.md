@@ -3,6 +3,12 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [1.1.0] — 2026-08-19
+
+### Added
+- Trụ 11 — Market Research: `references/market-research.md` (nỗi đau người dùng, kênh phân phối ngoài GitHub, benchmark top-1, pricing, demand validation)
+- BƯỚC 0 mở rộng: nghiên cứu thị trường trước khi build skill bán
+
 ## [1.0.0] — 2026-08-19
 
 Bản đầu tiên đủ điều kiện bán. Eval chính thức: **4/5 PASS** + static PASS

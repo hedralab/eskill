@@ -1,0 +1,14 @@
+{
+  "name": "eskill",
+  "version": "1.0.0",
+  "description": "Meta-skill to build top-tier Agent Skills: spec-compliant SKILL.md, eval loop, naming, commercialization checklist.",
+  "author": "hedracentral9999",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "eskill",
+      "source": "../SKILL.md",
+      "description": "Quy trình tạo/cải thiện/validate Agent Skill chuẩn top-1 (spec agentskills.io + eval loop + naming e-family)."
+    }
+  ]
+}

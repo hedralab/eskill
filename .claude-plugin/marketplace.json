@@ -1,0 +1,12 @@
+{
+  "vendor": "hedracentral9999",
+  "name": "eskill",
+  "version": "1.0.0",
+  "description": "eSkill — meta-skill để tạo Agent Skill chuẩn top-1.",
+  "plugins": [
+    {
+      "name": "eskill",
+      "source": "./plugin.json"
+    }
+  ]
+}

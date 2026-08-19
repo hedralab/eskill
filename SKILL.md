@@ -10,7 +10,7 @@ license: MIT
 compatibility: Python 3.10+
 metadata:
   author: hedra
-  version: "1.2.0"
+  version: "1.3.0"
 ---
 
 # eskill — Quy trình tạo Agent Skill (11 trụ cột)
@@ -61,6 +61,8 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 - **Sanitize trước khi public**: grep secret/path/brand/chat_id/token — làm hệ thống, không làm tay (egram lộ chat_id thật + path home cá nhân khi chuẩn bị bán (bài học: thay placeholder `<chat_id>`, `<project_root>`)).
 - **Đổi tên/version đồng bộ mọi file**: README/SKILL/frontmatter — validate chéo (egram v1 README ghi "8 trụ/Hedragram" khi skill đã 9 trụ/egram).
 
+- **Ghi từng bước thành file đánh số 0→n**: hỏi/ghi ngay kết quả mỗi bước vào file (0-goal → 1-market → 2-plan → 3-SKILL.md → 4-eval → 5-check) — state trên disk, user duyệt từng lớp, máy kiểm tra được (học từ egram: 0-logic → 5-month). Chi tiết: `references/numbered-output.md`
+
 ## Giới hạn (trung thực — khi nào KHÔNG dùng)
 
 - Skill **không thay thế test trên máy thật** của user — eval loop là agent chạy thử, user vẫn phải tự verify trên môi trường thật
@@ -86,3 +88,4 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 - `scripts/eval-skill.py` — eval harness: static check + test set versioned (eval-results.json) + trace verdict · `--verify` tổng kết pass rate/trigger rate + rubric bắt buộc per case
 
 - `references/market-research.md` — Trụ 11: research trước build sau (nỗi đau user, kênh phân phối, pricing, demand validation)
+- `references/numbered-output.md` — pattern file 0→n (học từ egram): ghi từng bước thành file, duyệt từng lớp

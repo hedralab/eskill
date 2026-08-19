@@ -3,6 +3,12 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [1.3.0] — 2026-08-19
+
+### Added
+- references/numbered-output.md: pattern file 0→n (học từ egram) — pipeline 0-goal → 1-market → 2-plan → 3-SKILL.md → 4-eval → 5-check
+- Quy tắc vàng mới: ghi từng bước thành file đánh số
+
 ## [1.2.0] — 2026-08-19
 
 ### Added

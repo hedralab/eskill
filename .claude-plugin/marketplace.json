@@ -1,5 +1,5 @@
 {
-  "vendor": "<your-github-username>",
+  "vendor": "hedralab",
   "name": "eskill",
   "version": "1.0.0",
   "description": "eSkill — meta-skill để tạo Agent Skill chuẩn top-1.",

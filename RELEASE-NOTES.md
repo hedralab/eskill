@@ -3,6 +3,11 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [1.4.2] — 2026-08-20
+
+### Added
+- eval-loop.md: quy tắc chạy đội agent an toàn (batch 2 agent/lượt → ghi file md → compact → nối tiếp) — chống treo UI khi forward-test với nhiều agent
+
 ## [1.4.1] — 2026-08-20
 
 ### Updated

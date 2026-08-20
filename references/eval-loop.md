@@ -68,3 +68,17 @@ Skill không thay thế test trên máy thật. Sau khi pass eval, gửi user 3 
 1. Skill `<tên>` đã pass eval — chạy thử: `<lệnh thật>`
 2. Kỳ vọng: `<output đúng — 1 dòng>`
 3. Verify trên môi trường thật rồi báo lại
+
+## Bẫy vận hành — chạy ĐỘI agent bị treo UI (đã vấp 2026-08-20)
+
+Triệu chứng: spawn 4-10 agent song song → TUI đứng cứng, Enter không ăn, phải mở terminal mới. Nguyên nhân: output agent con đổ vào context (phình nhanh) + spawn lồng nhau + context gần giới hạn.
+
+Luật chạy đội an toàn (batch 2 + ghi file + compact):
+1. **Tối đa 2 agent mỗi lượt** — không 4-10 song song
+2. **Agent con GHI KẾT QUẢ GỌN vào file .md đánh số** (vd research/1-market-a.md, 1-market-b.md) — không trả nguyên bản qua agent_result; agent mẹ chỉ đọc file
+3. **Nối tiếp đến hết** — lượt 1 (agent 1-2) → lượt 2 (agent 3-4) → ... mỗi lượt 1 file
+4. **Cấm spawn lồng nhau** — agent con không được gọi agent cháu
+5. **/compact trước mỗi lượt nếu context >60%** — giải phóng trước khi đổ output mới
+6. Tổng hợp CUỐI từ các file trên disk — không tổng hợp từ trí nhớ
+
+Khớp với numbered-output.md: bộ file 0→n chính là nơi agent con ghi — state-on-disk, máy kiểm tra được, 10 chuyên gia = 5 lượt × 2 agent.

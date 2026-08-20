@@ -10,7 +10,7 @@ license: MIT
 compatibility: Python 3.10+
 metadata:
   author: hedra
-  version: "1.4.2"
+  version: "1.4.3"
 ---
 
 # eskill — Quy trình tạo Agent Skill (11 trụ cột)
@@ -62,6 +62,8 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 - **Đổi tên/version đồng bộ mọi file**: README/SKILL/frontmatter — validate chéo (egram v1 README ghi "8 trụ/Hedragram" khi skill đã 9 trụ/egram).
 
 - **Ghi từng bước thành file đánh số 0→n**: hỏi/ghi ngay kết quả mỗi bước vào file (0-goal → 1-market → 2-plan → 3-SKILL.md → 4-eval → 5-check) — state trên disk, user duyệt từng lớp, máy kiểm tra được (học từ egram: 0-logic → 5-month). Chi tiết: `references/numbered-output.md`
+
+- **Chạy đội agent tối đa 2/lượt**: agent con ghi kết quả GỌN vào file .md đánh số, /compact giữa lượt, CẤM spawn lồng nhau — spawn 4-10 song song làm treo UI (đã vấp 2026-08-20; chi tiết: `references/eval-loop.md`)
 
 ## Giới hạn (trung thực — khi nào KHÔNG dùng)
 

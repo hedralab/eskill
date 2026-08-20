@@ -3,6 +3,11 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [1.4.3] — 2026-08-20
+
+### Fixed
+- Chuyển quy tắc chạy đội agent (2/lượt) từ eval-loop.md lên SKILL.md Quy tắc vàng — luôn trong context khi skill kích hoạt, không phụ thuộc load reference
+
 ## [1.4.2] — 2026-08-20
 
 ### Added

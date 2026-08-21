@@ -10,12 +10,12 @@ license: MIT
 compatibility: Python 3.10+
 metadata:
   author: hedra
-  version: "1.4.3"
+  version: "1.9.1"
 ---
 
-# eskill — Quy trình tạo Agent Skill (11 trụ cột)
+# eskill — Quy trình tạo Agent Skill (12 trụ cột)
 
-## 11 trụ cột — mỗi trụ 1 kim chỉ nam top-1
+## 12 trụ cột — mỗi trụ 1 kim chỉ nam top-1
 
 ```
 1. Core         · agentskills.io spec      — format chuẩn (frontmatter, progressive disclosure, refs 1 cấp)
@@ -29,6 +29,7 @@ metadata:
 9. Thương mại   · OKX                      — leak scan, LICENSE, marketplace, PnL bán skill
 10. Tư vấn      · SPIN + Mom Test          — hỏi đúng nỗi đau, skill theo đúng ý user
 11. Thị trường · JTBD + Mom Test + Demand Validation — research trước, build sau
+12. Logic gốc   · Pre-mortem + Simulation  — đặt vị thế người dùng, mô phỏng, quét MỌI biến số trước khi build
 ```
 
 ## Quickstart (3 câu — user mới bắt đầu từ đây)
@@ -41,8 +42,11 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 
 ## 6 bước — BƯỚC 0 quan trọng nhất
 
-1. **BƯỚC 0 — Tư vấn trước, không đoán (Trụ 10 — sales-discovery.md)**: trích mục tiêu từ hội thoại hiện có TRƯỚC (tool đã dùng, thứ tự, input/output, lỗi user sửa). Hỏi 1 câu/lượt, tối đa 6 câu theo chuỗi SPIN (S tình huống → P nỗi đau → I hệ quả → N giá trị) + Mom Test (hỏi CUỘC SỐNG họ, không hỏi "anh có cần...?"). Tóm tắt gap (hiện tại → mong muốn → rào cản) cho user XÁC NHẬN trước khi viết — skill build theo câu trả lời của user, không theo giả định model. **Chế độ tự động (không có user để trả lời): tự quyết từ thông tin có sẵn rồi TIẾN HÀNH — đừng dừng chờ hỏi (đã vấp: agent kẹt cứng ở BƯỚC 0 khi không có user — forward-test 2026-08-19).** **(Nếu build skill bán: làm Trụ 11 — nghiên cứu thị trường TRƯỚC, xem `references/market-research.md`)**
-2. **Chọn kim chỉ nam**: mỗi mảng lớn = 1 chuẩn ĐÃ CHỨNG MINH, không viết theo ý kiến. Egram đã dùng: BotFather · Apple HIG · Stripe · Telegram docs · 12-Factor · GitHub Actions · Apple Writing · AARRR · OKX. Tìm nguồn: docs chính thức + `gh search repos --sort stars`.
+1. **BƯỚC 0 — Tư vấn → sinh file → quét biến số (Trụ 10 + 12)**, làm tuần tự 3 việc:
+   a. **Hỏi đúng (Trụ 10 — sales-discovery.md)**: trích mục tiêu từ hội thoại hiện có (tool đã dùng, input/output, lỗi user sửa). Hỏi 1 câu/lượt, tối đa 6 câu SPIN + Mom Test; thêm 1 câu persona nếu dự án public (bán / portfolio / dev / nội bộ). Tóm tắt gap → user XÁC NHẬN trước khi viết. Auto-mode (không có user): tự quyết rồi TIẾN HÀNH — đừng kẹt chờ hỏi (đã vấp: agent kẹt cứng ở BƯỚC 0 — forward-test 2026-08-19).
+   b. **Sinh bộ file 0→n (bắt buộc — numbered-output.md)**: tạo `0-goal.txt → 1-market.txt → 2-plan.txt → 3-SKILL.md → 4-eval.md → 5-check.md` + `docs/` (skeleton trước, điền dần). Ghi TỪNG câu trả lời user vào `0-goal.txt` NGAY khi nhận — state trên disk, restart/compact không mất.
+   c. **Mô phỏng + quét biến số (Trụ 12 — simulation-variables.md)**: đặt vị thế người dùng → mô phỏng 5 kịch bản (chính · biên · lỗi · vòng đời · ra mắt) → quét 6 nhóm biến số (input · lỗi · vòng đời · người đọc · môi trường · quy trình) → biến số chưa phủ → mảng/Bẫy. **BẮT BUỘC ghi vào 2-plan.txt dòng `VÒNG ĐỜI: semver=…, changelog=…`** rồi mới viết. Delivery: lên GitHub → gọi `ehub` · bot Telegram → `egram` — eskill không lo. Nếu build skill bán: làm Trụ 11 (market-research.md) TRƯỚC.
+2. **Chọn kim chỉ nam**: mỗi mảng lớn = 1 chuẩn ĐÃ CHỨNG MINH, không viết theo ý kiến. Egram đã dùng: BotFather · Apple HIG · Stripe · Telegram docs · 12-Factor · GitHub Actions · Apple Writing · AARRR · OKX. Tìm nguồn: docs chính thức + `gh search repos --sort stars`. Quy trình tìm/verify/lưu đầy đủ: `references/top1-benchmark.md`.
 3. **Viết SKILL.md theo spec** (chi tiết: `references/spec-rules.md`):
    - Frontmatter: `name` (1-64, chữ thường + gạch nối, **= tên thư mục**) · `description` ≤1024 ký tự — nêu CẢ "làm gì" LẪN "khi nào dùng", kèm trigger keyword, viết "pushy" (chống undertrigger — Claude có xu hướng không bật skill dù cần)
    - Body < 500 dòng: mỗi mảng = **quy tắc → code mẫu → checklist** (lặp đều, đọc xong làm được ngay)
@@ -61,7 +65,7 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 - **Sanitize trước khi public**: grep secret/path/brand/chat_id/token — làm hệ thống, không làm tay (egram lộ chat_id thật + path home cá nhân khi chuẩn bị bán (bài học: thay placeholder `<chat_id>`, `<project_root>`)).
 - **Đổi tên/version đồng bộ mọi file**: README/SKILL/frontmatter — validate chéo (egram v1 README ghi "8 trụ/Hedragram" khi skill đã 9 trụ/egram).
 
-- **Ghi từng bước thành file đánh số 0→n**: hỏi/ghi ngay kết quả mỗi bước vào file (0-goal → 1-market → 2-plan → 3-SKILL.md → 4-eval → 5-check) — state trên disk, user duyệt từng lớp, máy kiểm tra được (học từ egram: 0-logic → 5-month). Chi tiết: `references/numbered-output.md`
+- **Bộ file 0→n BẮT BUỘC, TỰ ĐỘNG (học egram — 0-logic → 5-month)**: ngay khi bắt đầu, agent TỰ TẠO bộ file đánh số trong thư mục dự án (skill: 0-goal → 1-market → 2-plan → 3-SKILL.md → 4-eval → 5-check; dự án khác: 0-goal → 1-plan → ... theo thứ tự build) — skeleton trước, điền dần. MỌI câu trả lời user ghi vào file NGAY khi nhận, không giữ trong hội thoại (state trên disk — restart/compact không mất). Mỗi bước xong → cập nhật file tương ứng; user duyệt từng lớp trước khi sang lớp sau; máy kiểm tra được (đủ file? thiếu file nào?). Chi tiết: `references/numbered-output.md`
 
 - **Chạy đội agent tối đa 2/lượt**: agent con ghi kết quả GỌN vào file .md đánh số, /compact giữa lượt, CẤM spawn lồng nhau — spawn 4-10 song song làm treo UI (đã vấp 2026-08-20; chi tiết: `references/eval-loop.md`)
 
@@ -69,6 +73,7 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 
 - Skill **không thay thế test trên máy thật** của user — eval loop là agent chạy thử, user vẫn phải tự verify trên môi trường thật
 - Skill quốc tế → SKILL.md + README nên viết tiếng Anh (eskill bản VN là chuẩn nội bộ của tác giả)
+- eskill **chỉ BUILD skill** — không tự đẩy repo lên GitHub / không deploy. Xong skill → muốn lên GitHub gọi `ehub`, bot Telegram gọi `egram` (skill cuối lo delivery)
 
 ## References
 
@@ -83,11 +88,13 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 - `references/apple-writing.md` — Trụ 7: viết SKILL.md ngắn gọn (câu ngắn, động từ, specific)
 - `references/openai-yaml.md` — Trụ 9: agents/openai.yaml cho marketplace/UI (display_name, short_description, default_prompt)
 - `references/checklist-thuong-mai.md` — Trụ 9: chuẩn bị bán: sanitize rò rỉ + LICENSE + README đồng bộ + an toàn khi cài skill lạ
-- `references/ban-tren-github.md` — Trụ 9: bán trên GitHub: push repo · cấp quyền từng khách (private) · tag/release · chuyển public
+- `references/ban-tren-github.md` — Trụ 9: funnel bán skill trên GitHub (tham khảo) — thực thi delivery gọi `ehub` (repo/release) · `egram` (funnel Telegram)
 - `template/SKILL.md` — khung SKILL.md copy dùng ngay (frontmatter đủ field + quy tắc → code mẫu → ví dụ → checklist + Bẫy)
 - `examples/echeck/` — SKILL MẪU HOÀN CHỈNH (kiểm tra URL sống) — hình mẫu đối chiếu cho mọi skill tạo ra
 - `scripts/validate-skill.py` — validator: frontmatter, quy tắc name, độ dài, refs; `--leak` quét rò rỉ; `--brand "a,b"` quét brand nội bộ
 - `scripts/eval-skill.py` — eval harness: static check + test set versioned (eval-results.json) + trace verdict · `--verify` tổng kết pass rate/trigger rate + rubric bắt buộc per case
 
 - `references/market-research.md` — Trụ 11: research trước build sau (nỗi đau user, kênh phân phối, pricing, demand validation)
-- `references/numbered-output.md` — pattern file 0→n (học từ egram): ghi từng bước thành file, duyệt từng lớp
+- `references/numbered-output.md` — pattern file 0→n (học từ egram): sinh tự động, ghi ngay, duyệt từng lớp + thư mục `docs/` tủ tài liệu dự án
+- `references/top1-benchmark.md` — Trụ 2: quy trình tìm + verify + lưu kim chỉ nam top-1 (tiêu chí → 3+ ứng viên → 2 nguồn độc lập → benchmark file)
+- `references/simulation-variables.md` — Trụ 12: đặt vị thế → mô phỏng 5 kịch bản → quét 5 nhóm biến số → khung kiểm tra output (inside + bố trí)

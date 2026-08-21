@@ -10,6 +10,8 @@ building/shipping egram + the eSeed project.
 - **6-step process** to design, write, test and ship a skill (ask-first → pick a proven
   standard as "north star" → write spec-compliant SKILL.md → package known pitfalls →
   eval loop → pin activation)
+- **Simulation & variable scan (Trụ 12)**: put yourself in the user's shoes → simulate 5
+  scenarios (main/edge/error/lifecycle/launch) → scan 6 variable groups before writing
 - **Spec rules**: frontmatter (name/description/license/compatibility/metadata),
   progressive disclosure (<500 lines), 1-level references
 - **Eval loop**: forward-test with real-looking prompts, qualitative + quantitative review
@@ -52,7 +54,11 @@ eskill/
 │   ├── apple-writing.md         # concise SKILL.md writing
 │   ├── openai-yaml.md           # agents/openai.yaml guide
 │   ├── checklist-thuong-mai.md  # commercialization + safety checklist
-│   └── ban-tren-github.md       # selling via GitHub (private → public)
+│   ├── market-research.md       # Trụ 11: research trước build sau
+│   ├── numbered-output.md       # bộ file 0→n + docs/ (state trên disk)
+│   ├── top1-benchmark.md        # Trụ 2: tìm + verify kim chỉ nam top-1
+│   ├── simulation-variables.md  # Trụ 12: mô phỏng + quét biến số
+│   └── ban-tren-github.md       # Trụ 9: funnel bán — thực thi gọi ehub/egram
 ├── examples/echeck/             # complete reference skill
 └── scripts/
     ├── validate-skill.py        # validator: --leak --brand "a,b"
@@ -61,7 +67,7 @@ eskill/
 
 ## Release
 
-Version: `1.4.3` — xem [RELEASE-NOTES.md](RELEASE-NOTES.md).
+Version: `1.9.1` — xem [RELEASE-NOTES.md](RELEASE-NOTES.md).
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật RELEASE-NOTES → `gh release create vX.Y.Z`
 (chi tiết: `references/ban-tren-github.md`).
 
@@ -83,10 +89,12 @@ Claude Code — plugin marketplace:
 Manual — copy the folder into your agent skills dir:
 
 ```bash
-cp -R eskill ~/.deepseek/skills/eskill    # DeepSeek TUI
+cp -RL eskill ~/.deepseek/skills/eskill   # DeepSeek TUI — dùng -RL để copy NỘI DUNG THẬT
 # or ~/.claude/skills/eskill
 # or ~/.codex/skills/eskill
 ```
+
+**⚠️ Symlink:** trong repo này `skills/eskill` là symlink → `~/.deepseek/.agents/skills/eskill`. Khi copy/đóng gói, dùng `cp -RL` (hoặc `tar -h`) để giải symlink — `cp -R` thường sẽ copy symlink trần, gói sang máy khác bị vỡ (bẫy symlink — xem checklist-thuong-mai).
 
 ## License
 

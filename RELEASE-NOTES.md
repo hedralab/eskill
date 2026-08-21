@@ -3,6 +3,52 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [1.9.1] — 2026-08-21
+
+### Fixed
+- validate-skill.py: regex `name` trong frontmatter dùng `\s*` nuốt newline → `name:` rỗng bắt nhầm dòng `description` làm name (phát hiện bởi forward-test case 4); sửa dùng `[ \t]*` — value phải CÙNG DÒNG; thêm lỗi rõ ràng "frontmatter thiếu name (dòng 'name:' rỗng hoặc không có)"
+
+## [1.9.0] — 2026-08-21
+
+### Changed
+- BƯỚC 0 tách 3 mục con (hỏi → sinh file 0→n → mô phỏng/quét biến số) — hết bullet 12 dòng chồng 7 chủ đề (audit đội chuyên gia 08-21)
+- GỠ scripts/sell/ khỏi eskill (sales_bot.py · grant_access.sh · verify_payment.py · .env.mẫu) — mâu thuẫn routing "eskill không lo delivery"; archive cục bộ ngoài repo (không push)
+- ban-tren-github.md: viết lại thành funnel tham khảo — thực thi delivery gọi ehub (repo/release) + egram (funnel Telegram)
+
+### Added
+- Trụ 12 nâng: nhóm biến số thứ 6 QUY TRÌNH/CON NGƯỜI + ví dụ before/after (README khô → inside) + gate trước khi gọi ehub (CHANGELOG + version đồng bộ)
+- numbered-output.md: 2-plan.txt BẮT BUỘC dòng "VÒNG ĐỜI: semver=…, changelog=…"
+- README: đồng bộ cây cấu trúc (4 references thiếu) + dòng Trụ 12
+
+## [1.8.0] — 2026-08-21
+
+### Changed
+- BỎ phần GitHub khỏi eskill — eskill chỉ BUILD skill, không lo delivery; muốn đẩy lên GitHub → gọi skill cuối `ehub` (bot Telegram → `egram`)
+- docs-driven.md: gỡ mục "Repo GitHub / push" (chuyển về ehub)
+
+### Added
+- Trụ 12 — Simulation & Variable Scan (references/simulation-variables.md): đặt vị thế người dùng → mô phỏng 5 kịch bản (chính/biên/lỗi/vòng đời/ra mắt) → quét 5 nhóm biến số (input/lỗi/vòng đời/người đọc/môi trường) → biến số chưa phủ thành mảng/Bẫy → rồi mới build
+- BƯỚC 0: bước mô phỏng + quét biến số bắt buộc trước khi viết SKILL.md (học từ 2 bẫy: ehub quên versioning + README khô) + routing delivery sang skill cuối
+- numbered-output.md: 2-plan.txt thêm biến số đã quét (Trụ 12)
+
+## [1.7.0] — 2026-08-21
+
+### Added
+- docs-driven.md: mục "Repo GitHub / push" — docs/ bắt buộc có gh-cli.md + benchmark khi dự án đẩy lên GitHub (tham khảo ehub đã áp dụng)
+- BƯỚC 0 + numbered-output.md: câu hỏi vị thế người đăng/dùng (bán / portfolio / dev / nội bộ) — README/đóng gói theo persona
+
+## [1.6.0] — 2026-08-21
+
+### Added
+- references/top1-benchmark.md — quy trình tìm + verify + lưu kim chỉ nam top-1 (tiêu chí → 3+ ứng viên → verify 2 nguồn độc lập → benchmark file + SKILL.md 1 dòng)
+- numbered-output.md: thêm docs/ — tủ tài liệu dự án (requirement, decisions, API docs, benchmark, log) sinh kèm bộ file 0→n
+
+## [1.5.0] — 2026-08-21
+
+### Added
+- Workflow bộ file 0→n theo egram — BẮT BUỘC + TỰ ĐỘNG: agent sinh file đánh số ngay khi bắt đầu (0-goal → 1-market → 2-plan → 3-SKILL.md → 4-eval → 5-check), ghi câu trả lời user vào file NGAY khi nhận (state trên disk — restart/compact không mất), user duyệt từng lớp
+- numbered-output.md: mở rộng áp dụng cho MỌI dự án (không chỉ skill bán) — ví dụ bộ file bot theo egram (0-logic → 5-month)
+
 ## [1.4.3] — 2026-08-20
 
 ### Fixed

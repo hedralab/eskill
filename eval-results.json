@@ -1,53 +1,48 @@
 {
   "skill": "eskill",
-  "version": "1.4.3",
-  "date": "2026-08-19",
+  "version": "1.9.1",
+  "date": "2026-08-21",
   "static_pass": true,
   "test_cases": [
     {
       "id": 1,
       "type": "chính",
-      "prompt": "Tạo skill để chuyển số tiền sang chữ tiếng Việt (125000 → một trăm hai mươi lăm nghìn) và kiểm tra nó chạy được",
-      "rubric": "artifact: eval-out/skill-dongtien/SKILL.md tồn tại, name = thư mục, <500 dòng | behavior: validate-skill.py PASS exit 0 | behavior: script chạy đúng 2 input mẫu | LLM-judge: báo cáo rõ 4 mục yêu cầu",
+      "prompt": "Tạo một skill để kiểm tra URL còn sống hay không (fetch + báo status HTTP) và kiểm tra nó chạy được.",
+      "rubric": "Artifact/Behavior: file tồn tại + script chạy + hành vi đúng (chi tiết evidence)",
       "verdict": "PASS",
-      "evidence": "Lần 1: FAIL — không tạo artifact, kẹt ở BƯỚC 0 và hiểu lầm broken-skill. Lần 2: PASS — SKILL.md 84 dòng + scripts/dongtien.py; validator PASS 0 lỗi (đã verify lại trực tiếp); 125000 → 'một trăm hai mươi lăm nghìn', 1000000 → 'một triệu' + ~20 edge case đúng.",
-      "notes": "BƯỚC 0 (hỏi user) chặn agent chạy tự động — đã patch SKILL.md thêm hướng dẫn auto-mode."
+      "evidence": "Artifact: work1 đủ 6 file 0->n + docs/ (requirement,decisions,log) + elive/SKILL.md (frontmatter pushy, MIT, compatibility) + scripts/elive.py chạy được (--help, exit 0/1/2) + CHANGELOG v1.0.0. KHÔNG gh push. Task chết giữa chừng do HTTP 402 hết balance — artifacts hoàn chỉnh trước crash."
     },
     {
       "id": 2,
       "type": "biên",
-      "prompt": "Cải thiện skill echeck (examples/echeck/SKILL.md) — thêm timeout mặc định 10s + xử lý lỗi DNS/timeout",
-      "rubric": "artifact: eval-out/echeck-improved/SKILL.md tồn tại, <500 dòng, giữ cấu trúc quy tắc→code→checklist→Bẫy | behavior: code mẫu chạy thật 4 nhánh (200/DNS/timeout/refused) + input rỗng | LLM-judge: mỗi thay đổi nêu rõ lý do theo quy tắc eskill",
+      "prompt": "Tôi vừa build xong một tool Python nhỏ, giờ muốn đưa lên GitHub cho gọn và có quy tắc phiên bản. Giúp tôi chuẩn bị.",
+      "rubric": "Artifact/Behavior: file tồn tại + script chạy + hành vi đúng (chi tiết evidence)",
       "verdict": "PASS",
-      "evidence": "timeout mặc định 10s, tách nhánh lỗi DNS/timeout/refused; 113 dòng; test thật: ✅ 200, ❌ DNS, ⚠️ timeout, ❌ refused, không crash input rỗng; file gốc không bị sửa.",
-      "notes": ""
+      "evidence": "Routing: agent TỰ chọn ehub (không xử lý delivery trong eskill), chạy init_repo.py --no-push + --leak SẠCH; tư vấn semver + CHANGELOG Keep a Changelog + release 4 bước theo ehub repo-standard §7; đề xuất gh-push."
     },
     {
       "id": 3,
       "type": "nhanh",
-      "prompt": "Validate skill này tại <skill-dir> (1 lệnh)",
-      "rubric": "behavior: chạy đúng lệnh validator | behavior: output đầy đủ + kết luận PASS 0 lỗi | LLM-judge: không sửa gì ngoài phạm vi",
+      "prompt": "Validate skill này xem có chuẩn không: <skill-root>/ehub. Dùng skill eskill tại <skill-root>/eskill.",
+      "rubric": "Artifact/Behavior: file tồn tại + script chạy + hành vi đúng (chi tiết evidence)",
       "verdict": "PASS",
-      "evidence": "exit 0, output nguyên văn 5 mục ✅ + KẾT QUẢ: ✅ PASS (0 lỗi).",
-      "notes": ""
+      "evidence": "validate-skill.py ehub chạy 2 lần (kể cả --leak) đều PASS exit 0; kiểm thủ công refs backtick (4 refs + scripts) đều tồn tại; báo đúng 132 dòng < 500, description ~634 < 1024."
     },
     {
       "id": 4,
       "type": "sai",
-      "prompt": "Skill tại eval-out/broken-skill báo lỗi khi validate — debug giúp",
-      "rubric": "behavior: validator fail ban đầu (lỗi frontmatter thiếu description) | behavior: sửa xong validator PASS exit 0 | LLM-judge: báo cáo lỗi→fix→kết quả rõ ràng",
+      "prompt": "Skill tôi build báo lỗi khi validate. Debug giúp: thư mục <work>/eval-eskill-19/broken-skill. Dùng skill eskill tại <skill-root>/eskill.",
+      "rubric": "Artifact/Behavior: file tồn tại + script chạy + hành vi đúng (chi tiết evidence)",
       "verdict": "PASS",
-      "evidence": "FAIL 1 lỗi (frontmatter thiếu description) → thêm dòng 3 → PASS 0 lỗi. Lưu ý: ref khong-ton-tai.md (inline backtick) validator không bắt — gap tiềm năng.",
-      "notes": "Gap: validate-skill.py không bắt ref dạng inline backtick — cân nhắc bổ sung khi cải thiện validator."
+      "evidence": "Phát hiện name: rỗng trong frontmatter (validator bắt nhầm description thành name do regex nuốt newline); fix name: broken-skill khớp thư mục; validate lại PASS; có SKILL.md.bak. Ghi nhận quirk regex validator."
     },
     {
       "id": 5,
       "type": "lớn",
-      "prompt": "Tạo 5 skill cùng lúc cho 5 việc khác nhau (case lớn — scale)",
-      "rubric": "LLM-judge: tạo được 5 skill độc lập, mỗi skill validate PASS | behavior: hoàn thành trong thời gian/chi phí hợp lý",
-      "verdict": "FAIL",
-      "evidence": "3 lần chạy, 13 agent: Chạy 1 (skill gốc, 5 agent) → PASS: tinhtuoi, camel / FAIL: chude, ngaythang, xoakhoang. Chạy 2 (patch 'Bắt tay tạo file NGAY', 3 agent) → PASS: chude / FAIL: ngaythang, xoakhoang. Chạy 3 (patch 'KHÔNG mở examples khi tạo mới', 2 agent) → FAIL: ngaythang, xoakhoang. Tổng 3/5 skill tạo được, 5 artifact PASS validator.",
-      "notes": "Kết luận: patch 1 cứu 1/3 (chude). ngaythang + xoakhoang fail GIỐNG HỆT ở cả 3 phiên bản skill — agent tự kết thúc chỉ sau 4-6 steps (agent PASS chạy 10-13 steps) sau khi đọc SKILL.md + template, không kịp viết. Đây là hành vi dừng sớm của sub-agent harness (thread mới, budget thấp, không có user), không phải lỗi nội dung skill. Với phiên làm việc thật (có user tương tác, budget cao hơn) khả năng hoàn thành cao hơn. Case này cần test trên phiên thật trước khi bán thương mại."
+      "prompt": "Tạo 2 skill nhỏ cùng lúc: 1 skill đọc file CSV, 1 skill đổi đơn vị (kg/lb, C/F). Dùng skill eskill tại <skill-root>/eskill.",
+      "rubric": "Artifact/Behavior: file tồn tại + script chạy + hành vi đúng (chi tiết evidence)",
+      "verdict": "PASS",
+      "evidence": "2 skill độc lập work2/csv-reader + work2/unit-converter, mỗi skill đủ 0->n + docs/ + scripts; test biên pass (BOM, delimiter ;, --head, -40C->-40F, alias); phát hiện + fix 1 bug parse \"5 kg to lb\" ghi vào Bẫy; grep chéo = 0 match; validate PASS cả 2."
     }
   ]
 }

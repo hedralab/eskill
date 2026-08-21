@@ -49,14 +49,16 @@ def main():
         bad("thiếu YAML frontmatter (--- name/description ---)")
     else:
         fm = m.group(1)
-        has_name = re.search(r"^name\s*:\s*\S+", fm, re.M)
-        has_desc = re.search(r"^description\s*:", fm, re.M)
+        # value phải CÙNG DÒNG và không chứa ':' — dùng [ \t]* (không nuốt newline)
+        # tránh bắt nhầm dòng kế (vd name: rỗng → bắt 'description' làm name) — fix 1.9.1
+        has_name = re.search(r"^name[ \t]*:[ \t]*[^\s:]+", fm, re.M)
+        has_desc = re.search(r"^description[ \t]*:", fm, re.M)
         if has_name and has_desc:
             ok("frontmatter có name + description")
         else:
             bad("frontmatter thiếu name hoặc description")
 
-        nm = re.search(r"^name\s*:\s*(\S+)", fm, re.M)
+        nm = re.search(r"^name[ \t]*:[ \t]*([^\s:]+)", fm, re.M)
         if nm:
             name = nm.group(1)
             if re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", name):
@@ -67,6 +69,8 @@ def main():
                 bad(f"name ({name}) KHÔNG khớp tên thư mục ({root.name})")
             else:
                 ok(f"name = thư mục ({root.name})")
+        else:
+            bad("frontmatter thiếu name (dòng 'name:' rỗng hoặc không có)")
 
         desc = re.search(r"^description\s*:\s*(.+)$", fm, re.M)
         if desc and len(desc.group(1)) > 1024:

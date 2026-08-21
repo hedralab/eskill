@@ -1,12 +1,14 @@
 {
-  "version": "1.4.3",
+  "version": "1.9.1",
   "bump": "patch",
   "sync_files": [
     "SKILL.md",
     "README.md",
     "eval-results.json",
     "RELEASE-NOTES.md",
+    "agents/openai.yaml",
     ".claude-plugin/plugin.json",
+    ".claude-plugin/marketplace.json",
     ".codex-plugin/plugin.json",
     ".cursor-plugin/plugin.json"
   ],

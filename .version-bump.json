@@ -1,6 +1,6 @@
 {
-  "version": "2.1.0",
-  "bump": "minor",
+  "version": "2.1.1",
+  "bump": "patch",
   "sync_files": [
     "SKILL.md",
     "README.md",

@@ -4,7 +4,7 @@ description: >
   Kiểm tra 1 URL còn hoạt động không (status + title + thời gian phản hồi).
   Dùng khi cần verify trang web/link còn sống, kiểm tra link hỏng trong tài liệu,
   hoặc xác nhận site đã deploy thành công. Trả kết quả 1 dòng: ✅/❌ + status + title.
-license: MIT
+license: UseOnly
 metadata:
   author: hedra
   version: "1.0"

@@ -27,9 +27,9 @@ ngoại hình cá nhân, chủng tộc, tôn giáo hoặc khuynh hướng tình 
 
 ## Thực thi
 
-Maintainer có quyền xóa, chỉnh sửa hoặc từ chối bình luận, commit, code,
-wiki edit, issue không phù hợp, và có thể cấm tạm thời hoặc vĩnh viễn
-bất kỳ contributor nào vi phạm.
+Maintainer có quyền xóa, chỉnh sửa hoặc từ chối bình luận và issue
+không phù hợp, và có thể cấm tạm thời hoặc vĩnh viễn bất kỳ ai vi phạm.
+(Repo theo license Use-Only — không nhận đóng góp code; chỉ nhận phản hồi qua issue.)
 
 ## Attribution
 

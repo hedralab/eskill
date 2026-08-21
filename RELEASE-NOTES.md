@@ -3,6 +3,15 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [2.1.1] — 2026-08-21
+
+### Removed
+- .github/PULL_REQUEST_TEMPLATE.md — bỏ (mời PR = mời sửa code = vi phạm license Use-Only; audit đội chuyên gia 08-21)
+
+### Fixed
+- CODE_OF_CONDUCT.md: bỏ nhắc "commit, code, wiki edit" (ngụ ý đóng góp code) — Use-Only chỉ nhận phản hồi qua issue
+- examples/echeck/SKILL.md: frontmatter license MIT → UseOnly (đồng bộ license repo)
+
 ## [2.1.0] — 2026-08-21
 
 ### Changed

@@ -68,7 +68,7 @@ eskill/
 
 ## Release
 
-Version: `2.1.0` — see [RELEASE-NOTES.md](RELEASE-NOTES.md).
+Version: `2.1.1` — see [RELEASE-NOTES.md](RELEASE-NOTES.md).
 Process: edit → bump `.version-bump.json` → update RELEASE-NOTES → `gh release create vX.Y.Z`
 (details: `references/ban-tren-github.md`).
 

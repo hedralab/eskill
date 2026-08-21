@@ -28,6 +28,10 @@ Mở rộng test set → chạy quy mô lớn hơn
 - **Dọn artifact giữa các lần** — agent test không được đọc output của lần trước (contamination)
 - **Forward-test thất bại mà chỉ pass khi có leaked context = skill chưa đủ**, tighten lại
 
+## Demo THẬT ≠ forward-test (2.2.0)
+
+Forward-test là demo **GIẢ LẬP** (agent test + prompt tự nghĩ) — không thay demo thật (user dùng skill vào việc thật). Sau handoff verify (3 dòng), user dùng thật → phản hồi lộ ra biến số mới (license, ngôn ngữ, môi trường máy) → **GHI NGƯỢC vào `6-observed-variables.md`** + thêm Bẫy/câu hỏi vào SKILL.md skill đó — vòng lặp khép kín, lần build sau đọc trước khi scan (Trụ 12 Bước 0).
+
 ## Đánh giá
 
 - **Qualitative**: output có đúng format, đúng luồng, đúng giọng điệu?

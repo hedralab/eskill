@@ -3,6 +3,13 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [2.2.0] — 2026-08-21
+
+### Added
+- Trụ 12 Bước 0 — vòng lặp khép kín "demo-driven variable capture": đọc `6-observed-variables.md` của skill cùng họ TRƯỚC khi scan (scan a-priori không bắt được biến số use-time: license, ngôn ngữ, môi trường máy)
+- numbered-output: pipeline thêm `6-observed-variables.md` (sau 5-check) + format
+- eval-loop: ghi rõ "Demo THẬT ≠ forward-test" — phản hồi dùng thật phải ghi ngược vào 6-observed (học từ thực tế: ehub vấp license/ngôn ngữ/gh multi-account khi DÙNG THẬT)
+
 ## [2.1.1] — 2026-08-21
 
 ### Removed

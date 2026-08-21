@@ -15,6 +15,18 @@ Trước khi build, ĐẶT VỊ THẾ người dùng → MÔ PHỎNG kịch bả
 4. **Đối chiếu độ phủ** — biến số nào skill đã xử lý? chưa → thành mảng mới hoặc Bẫy trong SKILL.md
 5. **Ghi vào 2-plan.txt** — biến số + cách xử lý, TRƯỚC khi viết draft
 
+## Bước 0 — đọc evidence THỰC TẾ trước khi scan (vòng lặp khép kín — 2.2.0)
+
+Scan a-priori (trí tưởng tượng) KHÔNG bắt được biến số user-specific (license, ngôn ngữ, môi trường máy thật). Vòng lặp demo-driven:
+
+1. **Demo thật**: user dùng skill đã build vào việc thật — ghi lỗi + câu hỏi user phải tự trả lời
+2. **Quan sát**: biến số mới lộ ra là gì, thuộc nhóm nào (6 nhóm dưới)
+3. **Phân loại**: biến số thuộc skill nào — ghi kèm triệu chứng, không ghi kết luận
+4. **Lưu ngược**: ghi `6-observed-variables.md` + thêm Bẫy/câu hỏi bắt buộc vào SKILL.md của skill đó
+5. **Lần build sau**: ĐỌC `6-observed-variables.md` (nhất là skill cùng họ e-family) TRƯỚC khi scan → hỏi/sửa ngay từ đầu
+
+Đã vấp (2026-08-21, build ehub/eskill): license hardcode MIT (user đổi MIT→NC→UseOnly 3 lần), ngôn ngữ README/SKILL lẫn (VI/EN), gh multi-account gate false-positive — cả 3 chỉ lộ khi DÙNG THẬT, scan lúc build không bắt được.
+
 ## Checklist biến số 6 nhóm
 
 - **INPUT**: rỗng · sai format · ký tự đặc biệt/không dấu · kích thước tối đa · input lạ (file/URL/emoji)

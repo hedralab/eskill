@@ -14,6 +14,7 @@ Ngay khi bắt đầu làm việc với bất kỳ dự án nào (skill / bot / 
 - 3-SKILL.md — draft theo spec (frontmatter, <500 dòng, refs 1 cấp)
 - 4-eval.md — 5 test prompt + rubric TRƯỚC khi chạy eval
 - 5-check.md — checklist thương mại (leak scan, LICENSE, README đồng bộ)
+- 6-observed-variables.md — vòng lặp khép kín (2.2.0): biến số lộ ra khi DÙNG THẬT — format: `## [ngày] [skill] [biến số] — nhóm` + triệu chứng + quy tắc/Bẫy đã thêm + câu hỏi bắt buộc khi build
 
 ## Dự án KHÔNG phải skill — cùng nguyên tắc, file theo dự án
 

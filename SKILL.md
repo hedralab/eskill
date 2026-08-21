@@ -10,7 +10,7 @@ license: UseOnly
 compatibility: Python 3.10+
 metadata:
   author: hedra
-  version: "2.1.1"
+  version: "2.2.0"
 ---
 
 # eskill — Quy trình tạo Agent Skill (12 trụ cột)
@@ -44,8 +44,8 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 
 1. **BƯỚC 0 — Tư vấn → sinh file → quét biến số (Trụ 10 + 12)**, làm tuần tự 3 việc:
    a. **Hỏi đúng (Trụ 10 — sales-discovery.md)**: trích mục tiêu từ hội thoại hiện có (tool đã dùng, input/output, lỗi user sửa). Hỏi 1 câu/lượt, tối đa 6 câu SPIN + Mom Test; thêm 1 câu persona nếu dự án public (bán / portfolio / dev / nội bộ). Tóm tắt gap → user XÁC NHẬN trước khi viết. Auto-mode (không có user): tự quyết rồi TIẾN HÀNH — đừng kẹt chờ hỏi (đã vấp: agent kẹt cứng ở BƯỚC 0 — forward-test 2026-08-19).
-   b. **Sinh bộ file 0→n (bắt buộc — numbered-output.md)**: tạo `0-goal.txt → 1-market.txt → 2-plan.txt → 3-SKILL.md → 4-eval.md → 5-check.md` + `docs/` (skeleton trước, điền dần). Ghi TỪNG câu trả lời user vào `0-goal.txt` NGAY khi nhận — state trên disk, restart/compact không mất.
-   c. **Mô phỏng + quét biến số (Trụ 12 — simulation-variables.md)**: đặt vị thế người dùng → mô phỏng 5 kịch bản (chính · biên · lỗi · vòng đời · ra mắt) → quét 6 nhóm biến số (input · lỗi · vòng đời · người đọc · môi trường · quy trình) → biến số chưa phủ → mảng/Bẫy. **BẮT BUỘC ghi vào 2-plan.txt dòng `VÒNG ĐỜI: semver=…, changelog=…`** rồi mới viết. Delivery: lên GitHub → gọi `ehub` · bot Telegram → `egram` — eskill không lo. Nếu build skill bán: làm Trụ 11 (market-research.md) TRƯỚC.
+   b. **Sinh bộ file 0→n (bắt buộc — numbered-output.md)**: tạo `0-goal.txt → 1-market.txt → 2-plan.txt → 3-SKILL.md → 4-eval.md → 5-check.md → 6-observed-variables.md` + `docs/` (skeleton trước, điền dần). Ghi TỪNG câu trả lời user vào `0-goal.txt` NGAY khi nhận — state trên disk, restart/compact không mất.
+   c. **Mô phỏng + quét biến số (Trụ 12 — simulation-variables.md)**: ĐỌC `6-observed-variables.md` của skill cùng họ TRƯỚC (vòng lặp khép kín — 2.2.0) → đặt vị thế người dùng → mô phỏng 5 kịch bản (chính · biên · lỗi · vòng đời · ra mắt) → quét 6 nhóm biến số (input · lỗi · vòng đời · người đọc · môi trường · quy trình) → biến số chưa phủ → mảng/Bẫy. **BẮT BUỘC ghi vào 2-plan.txt dòng `VÒNG ĐỜI: semver=…, changelog=…`** rồi mới viết. Delivery: lên GitHub → gọi `ehub` · bot Telegram → `egram` — eskill không lo. Nếu build skill bán: làm Trụ 11 (market-research.md) TRƯỚC.
 2. **Chọn kim chỉ nam**: mỗi mảng lớn = 1 chuẩn ĐÃ CHỨNG MINH, không viết theo ý kiến. Egram đã dùng: BotFather · Apple HIG · Stripe · Telegram docs · 12-Factor · GitHub Actions · Apple Writing · AARRR · OKX. Tìm nguồn: docs chính thức + `gh search repos --sort stars`. Quy trình tìm/verify/lưu đầy đủ: `references/top1-benchmark.md`.
 3. **Viết SKILL.md theo spec** (chi tiết: `references/spec-rules.md`):
    - Frontmatter: `name` (1-64, chữ thường + gạch nối, **= tên thư mục**) · `description` ≤1024 ký tự — nêu CẢ "làm gì" LẪN "khi nào dùng", kèm trigger keyword, viết "pushy" (chống undertrigger — Claude có xu hướng không bật skill dù cần)

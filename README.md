@@ -7,18 +7,19 @@ building/shipping egram + the eSeed project.
 
 ## What it gives you
 
-- **6-step process** to design, write, test and ship a skill (ask-first → pick a proven
-  standard as "north star" → write spec-compliant SKILL.md → package known pitfalls →
-  eval loop → pin activation)
-- **Simulation & variable scan (Trụ 12)**: put yourself in the user's shoes → simulate 5
-  scenarios (main/edge/error/lifecycle/launch) → scan 6 variable groups before writing
+- **12-pillar production process**: Core (agentskills.io spec) · UX (Apple HIG) ·
+  Validation · Docs & Traps · Ops (12-Factor) · Eval (skill-creator) · Writing (Apple) ·
+  Growth (AARRR) · Commercial · Consulting (SPIN + Mom Test) · Market (JTBD) ·
+  **Simulation & Variable Scan** (put yourself in the user's shoes → simulate 5 scenarios →
+  scan 6 variable groups before writing)
+- **Numbered-file workflow (0→n)**: every build generates 0-goal → 1-market → 2-plan →
+  3-SKILL.md → 4-eval → 5-check + docs/ — state on disk, review layer by layer
 - **Spec rules**: frontmatter (name/description/license/compatibility/metadata),
   progressive disclosure (<500 lines), 1-level references
 - **Eval loop**: forward-test with real-looking prompts, qualitative + quantitative review
 - **Naming** (Apple-style e-family: `e` + one word — eSkill, eSeed, egram)
-- **Commercial checklist**: leak scan (`--leak --brand`), LICENSE, README sync, marketplace
 - **Validator**: `scripts/validate-skill.py` — catches broken frontmatter, bad names,
-  broken refs, oversized SKILL.md, and leaks
+  broken refs, oversized SKILL.md, and leaks (`--leak --brand`)
 
 ## Quickstart (3 prompts)
 
@@ -30,9 +31,9 @@ building/shipping egram + the eSeed project.
 
 ```
 eskill/
-├── SKILL.md                     # 6-step process + golden rules (Vietnamese — user-facing)
+├── SKILL.md                     # 12-pillar process + golden rules (Vietnamese — author-facing)
 ├── README.md                    # This file (English — public-facing)
-├── LICENSE                      # MIT
+├── LICENSE                      # Non-commercial (custom)
 ├── RELEASE-NOTES.md             # changelog (Keep a Changelog + semver)
 ├── .version-bump.json           # current version + files to sync on bump
 ├── CODE_OF_CONDUCT.md           # contributor covenant
@@ -46,6 +47,9 @@ eskill/
 │   ├── spec-rules.md            # agentskills.io spec rules
 │   ├── naming.md                # Apple-style e-family naming
 │   ├── sales-discovery.md       # SPIN + Mom Test (step-0 interview)
+│   ├── top1-benchmark.md        # Pillar 2: find + verify a top-1 benchmark
+│   ├── simulation-variables.md  # Pillar 12: simulate + scan variables
+│   ├── numbered-output.md       # 0→n file workflow + docs/ (state on disk)
 │   ├── eval-loop.md             # test → evaluate → fix loop
 │   ├── test-prompts-template.md # 5 test-prompt types
 │   ├── rubric.md                # pre-registered pass/fail rubric
@@ -54,11 +58,8 @@ eskill/
 │   ├── apple-writing.md         # concise SKILL.md writing
 │   ├── openai-yaml.md           # agents/openai.yaml guide
 │   ├── checklist-thuong-mai.md  # commercialization + safety checklist
-│   ├── market-research.md       # Trụ 11: research trước build sau
-│   ├── numbered-output.md       # bộ file 0→n + docs/ (state trên disk)
-│   ├── top1-benchmark.md        # Trụ 2: tìm + verify kim chỉ nam top-1
-│   ├── simulation-variables.md  # Trụ 12: mô phỏng + quét biến số
-│   └── ban-tren-github.md       # Trụ 9: funnel bán — thực thi gọi ehub/egram
+│   ├── market-research.md       # Pillar 11: research before build
+│   └── ban-tren-github.md       # Pillar 9: sales funnel — execute via ehub/egram
 ├── examples/echeck/             # complete reference skill
 └── scripts/
     ├── validate-skill.py        # validator: --leak --brand "a,b"
@@ -67,9 +68,9 @@ eskill/
 
 ## Release
 
-Version: `1.9.1` — xem [RELEASE-NOTES.md](RELEASE-NOTES.md).
-Quy trình: sửa xong → bump `.version-bump.json` → cập nhật RELEASE-NOTES → `gh release create vX.Y.Z`
-(chi tiết: `references/ban-tren-github.md`).
+Version: `2.0.0` — see [RELEASE-NOTES.md](RELEASE-NOTES.md).
+Process: edit → bump `.version-bump.json` → update RELEASE-NOTES → `gh release create vX.Y.Z`
+(details: `references/ban-tren-github.md`).
 
 ## Install
 
@@ -89,13 +90,17 @@ Claude Code — plugin marketplace:
 Manual — copy the folder into your agent skills dir:
 
 ```bash
-cp -RL eskill ~/.deepseek/skills/eskill   # DeepSeek TUI — dùng -RL để copy NỘI DUNG THẬT
+cp -RL eskill ~/.deepseek/skills/eskill    # DeepSeek TUI (resolve symlinks)
 # or ~/.claude/skills/eskill
 # or ~/.codex/skills/eskill
 ```
 
-**⚠️ Symlink:** trong repo này `skills/eskill` là symlink → `~/.deepseek/.agents/skills/eskill`. Khi copy/đóng gói, dùng `cp -RL` (hoặc `tar -h`) để giải symlink — `cp -R` thường sẽ copy symlink trần, gói sang máy khác bị vỡ (bẫy symlink — xem checklist-thuong-mai).
+**⚠️ Symlink:** in this repo `skills/eskill` is a symlink → `~/.deepseek/.agents/skills/eskill`.
+When copying/packaging, use `cp -RL` (or `tar -h`) to resolve it — plain `cp -R` copies the
+symlink itself and breaks the package on other machines.
 
 ## License
 
-MIT — free to use, modify, and sell.
+**Non-commercial.** See [LICENSE](LICENSE). You may use, modify and share this skill for
+non-commercial purposes with attribution; commercial use (selling, or embedding it in paid
+products/services) requires prior written permission.

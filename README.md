@@ -68,7 +68,7 @@ eskill/
 
 ## Release
 
-Version: `2.3.0` — xem [RELEASE-NOTES.md](RELEASE-NOTES.md).
+Version: `2.4.0` — xem [RELEASE-NOTES.md](RELEASE-NOTES.md).
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật RELEASE-NOTES → `gh release create vX.Y.Z`
 (chi tiết: `references/ban-tren-github.md`).
 

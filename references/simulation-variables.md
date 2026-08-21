@@ -27,6 +27,16 @@ Scan a-priori (trí tưởng tượng) KHÔNG bắt được biến số user-sp
 
 Đã vấp (2026-08-21, build ehub/eskill): license hardcode MIT (user đổi MIT→NC→UseOnly 3 lần), ngôn ngữ README/SKILL lẫn (VI/EN), gh multi-account gate false-positive — cả 3 chỉ lộ khi DÙNG THẬT, scan lúc build không bắt được.
 
+## Quy tắc gốc — 1 biến cho MỌI file (root variable, 2.4.0)
+
+Biến ảnh hưởng NHIỀU output (ngôn ngữ, license, owner...) → ĐƠN GIẢN HÓA TỪ GỐC:
+
+1. **1 biến gốc duy nhất** điều khiển MỌI file liên quan (vd `--readme-lang` → README + CoC + LICENSE)
+2. **Marker file** ghi giá trị để máy kiểm tra (vd `LANGUAGE.txt` = vi/en)
+3. **Audit chéo**: --check xác nhận các file cùng giá trị với marker — không lẫn
+
+Học từ thực tế (ehub 1.5.0): eskill từng README EN / CoC VN / LICENSE EN lẫn lộn → 1 biến gốc + marker + audit giải quyết vĩnh viễn. Xem `6-observed-variables.md` (skill gốc).
+
 ## Checklist biến số 6 nhóm
 
 - **INPUT**: rỗng · sai format · ký tự đặc biệt/không dấu · kích thước tối đa · input lạ (file/URL/emoji)

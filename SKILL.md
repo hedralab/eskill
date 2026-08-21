@@ -10,7 +10,7 @@ license: UseOnly
 compatibility: Python 3.10+
 metadata:
   author: hedra
-  version: "2.3.0"
+  version: "2.4.0"
 ---
 
 # eskill — Quy trình tạo Agent Skill (12 trụ cột)

@@ -3,6 +3,12 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [2.4.0] — 2026-08-21
+
+### Added
+- `6-observed-variables.md` — skill tự ghi bài học từ DÙNG THẬT (4 mục: license · ngôn ngữ · gh multi-account · rsync sync) — dogfood vòng lặp khép kín
+- simulation-variables.md: **Quy tắc gốc "1 biến cho MỌI file"** (root variable) — 1 biến duy nhất + marker file + audit chéo (học từ ehub 1.5.0 --readme-lang + LANGUAGE.txt) — đơn giản hóa từ gốc, hết lẫn ngôn ngữ vĩnh viễn
+
 ## [2.3.0] — 2026-08-21
 
 ### Changed

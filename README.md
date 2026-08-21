@@ -1,66 +1,66 @@
-# eSkill — Meta-skill: build top-tier Agent Skills
+# eSkill — Meta-skill: tạo Agent Skill chuẩn top-1
 
-eSkill is the **skill for creating skills** — a production workflow distilled from the
-official [Agent Skills spec](https://agentskills.io/specification), Anthropic's
-[skill-creator](https://github.com/anthropics/skills) eval loop, and real lessons from
-building/shipping egram + the eSeed project.
+eSkill là **skill để tạo skill** — quy trình sản xuất được chưng cất từ
+[spec chính thức Agent Skills](https://agentskills.io/specification), vòng eval của Anthropic
+[skill-creator](https://github.com/anthropics/skills), và kinh nghiệm thực chiến build/ship
+egram + dự án eSeed.
 
-## What it gives you
+## Tính năng
 
-- **12-pillar production process**: Core (agentskills.io spec) · UX (Apple HIG) ·
-  Validation · Docs & Traps · Ops (12-Factor) · Eval (skill-creator) · Writing (Apple) ·
-  Growth (AARRR) · Commercial · Consulting (SPIN + Mom Test) · Market (JTBD) ·
-  **Simulation & Variable Scan** (put yourself in the user's shoes → simulate 5 scenarios →
-  scan 6 variable groups before writing)
-- **Numbered-file workflow (0→n)**: every build generates 0-goal → 1-market → 2-plan →
-  3-SKILL.md → 4-eval → 5-check + docs/ — state on disk, review layer by layer
-- **Spec rules**: frontmatter (name/description/license/compatibility/metadata),
-  progressive disclosure (<500 lines), 1-level references
-- **Eval loop**: forward-test with real-looking prompts, qualitative + quantitative review
-- **Naming** (Apple-style e-family: `e` + one word — eSkill, eSeed, egram)
-- **Validator**: `scripts/validate-skill.py` — catches broken frontmatter, bad names,
-  broken refs, oversized SKILL.md, and leaks (`--leak --brand`)
+- **Quy trình 12 trụ**: Core (spec agentskills.io) · UX (Apple HIG) · Validation · Docs & Bẫy ·
+  Vận hành (12-Factor) · Eval (skill-creator) · Nội dung (Apple Writing) · Tăng trưởng (AARRR) ·
+  Thương mại · Tư vấn (SPIN + Mom Test) · Thị trường (JTBD) ·
+  **Simulation & Variable Scan** (đặt vị thế người dùng → mô phỏng 5 kịch bản →
+  quét 6 nhóm biến số trước khi viết)
+- **Workflow bộ file 0→n**: mỗi lần build sinh 0-goal → 1-market → 2-plan → 3-SKILL.md →
+  4-eval → 5-check → 6-observed-variables + docs/ — state trên disk, duyệt từng lớp
+- **Quy tắc spec**: frontmatter (name/description/license/compatibility/metadata),
+  progressive disclosure (<500 dòng), refs 1 cấp
+- **Eval loop**: forward-test bằng prompt giả lập user thật, đánh giá định tính + định lượng
+- **Đặt tên** (e-family kiểu Apple: `e` + 1 từ chính — eSkill, eSeed, egram)
+- **Validator**: `scripts/validate-skill.py` — bắt frontmatter hỏng, tên sai, refs vỡ,
+  SKILL.md quá dài, và rò rỉ (`--leak --brand`)
 
-## Quickstart (3 prompts)
+## Quickstart (3 câu)
 
-1. `Create a skill that <does X> and check it works` — eSkill interviews you, then builds it
-2. `Improve this skill: <path>` — eSkill applies the eval loop and fixes it
-3. `Validate this skill: <path> [--leak]` — run the validator
+1. `Tạo một skill để <việc X> và kiểm tra nó chạy được` — eSkill hỏi ít câu rồi build
+2. `Cải thiện skill này: <đường dẫn>` — eSkill áp eval loop và sửa
+3. `Validate skill này: <đường dẫn> [--leak]` — chạy validator
 
-## Structure
+## Cấu trúc
 
 ```
 eskill/
-├── SKILL.md                     # 12-pillar process + golden rules (Vietnamese — author-facing)
-├── README.md                    # This file (English — public-facing)
-├── LICENSE                      # Use-only (custom)
+├── SKILL.md                     # quy trình 12 trụ + quy tắc vàng (tiếng Việt)
+├── README.md                    # file này
+├── LICENSE                      # Use-Only (chỉ cho dùng — tiếng Việt)
 ├── RELEASE-NOTES.md             # changelog (Keep a Changelog + semver)
-├── .version-bump.json           # current version + files to sync on bump
-├── CODE_OF_CONDUCT.md           # contributor covenant
+├── .version-bump.json           # version hiện tại + danh sách file đồng bộ khi bump
+├── CODE_OF_CONDUCT.md           # quy tắc ứng xử
 ├── .gitignore · .pre-commit-config.yaml
-├── agents/openai.yaml           # marketplace/UI metadata
-├── .claude-plugin/ · .codex-plugin/ · .cursor-plugin/   # plugin manifests
-├── .github/                     # FUNDING + issue/PR templates
+├── agents/openai.yaml           # metadata marketplace/UI
+├── .claude-plugin/ · .codex-plugin/ · .cursor-plugin/   # manifest plugin
+├── .github/                     # FUNDING + issue templates
 ├── assets/                      # icon
-├── template/SKILL.md            # copy-ready skill skeleton (full frontmatter)
+├── template/SKILL.md            # khung SKILL.md copy dùng ngay (frontmatter đủ field)
 ├── references/
-│   ├── spec-rules.md            # agentskills.io spec rules
-│   ├── naming.md                # Apple-style e-family naming
-│   ├── sales-discovery.md       # SPIN + Mom Test (step-0 interview)
-│   ├── top1-benchmark.md        # Pillar 2: find + verify a top-1 benchmark
-│   ├── simulation-variables.md  # Pillar 12: simulate + scan variables
-│   ├── numbered-output.md       # 0→n file workflow + docs/ (state on disk)
-│   ├── eval-loop.md             # test → evaluate → fix loop
-│   ├── test-prompts-template.md # 5 test-prompt types
-│   ├── rubric.md                # pre-registered pass/fail rubric
-│   ├── docs-driven.md           # docs = hard gate 100%
-│   ├── 12-factor-skills.md      # maintainable skill ops
-│   ├── apple-writing.md         # concise SKILL.md writing
-│   ├── openai-yaml.md           # agents/openai.yaml guide
-│   ├── checklist-thuong-mai.md  # commercialization + safety checklist
-│   ├── market-research.md       # Pillar 11: research before build
-│   └── ban-tren-github.md       # Pillar 9: sales funnel — execute via ehub/egram
-├── examples/echeck/             # complete reference skill
+│   ├── spec-rules.md            # quy tắc spec agentskills.io
+│   ├── naming.md                # đặt tên e-family kiểu Apple
+│   ├── sales-discovery.md       # SPIN + Mom Test (phỏng vấn bước 0)
+│   ├── top1-benchmark.md        # Trụ 2: tìm + verify kim chỉ nam top-1
+│   ├── simulation-variables.md  # Trụ 12: mô phỏng + quét biến số
+│   ├── numbered-output.md       # workflow bộ file 0→n + docs/ (state trên disk)
+│   ├── eval-loop.md             # vòng test → đánh giá → sửa
+│   ├── test-prompts-template.md # 5 kiểu test prompt
+│   ├── rubric.md                # tiêu chí pass/fail đăng ký trước
+│   ├── docs-driven.md           # docs = HARD GATE 100%
+│   ├── 12-factor-skills.md      # vận hành skill bền
+│   ├── apple-writing.md         # viết SKILL.md ngắn gọn
+│   ├── openai-yaml.md           # hướng dẫn agents/openai.yaml
+│   ├── checklist-thuong-mai.md  # checklist thương mại + an toàn
+│   ├── market-research.md       # Trụ 11: research trước build
+│   └── ban-tren-github.md       # Trụ 9: funnel bán — thực thi gọi ehub/egram
+├── examples/echeck/             # skill mẫu hoàn chỉnh
 └── scripts/
     ├── validate-skill.py        # validator: --leak --brand "a,b"
     └── eval-skill.py            # eval harness: test set + --verify
@@ -68,13 +68,13 @@ eskill/
 
 ## Release
 
-Version: `2.2.1` — see [RELEASE-NOTES.md](RELEASE-NOTES.md).
-Process: edit → bump `.version-bump.json` → update RELEASE-NOTES → `gh release create vX.Y.Z`
-(details: `references/ban-tren-github.md`).
+Version: `2.3.0` — xem [RELEASE-NOTES.md](RELEASE-NOTES.md).
+Quy trình: sửa xong → bump `.version-bump.json` → cập nhật RELEASE-NOTES → `gh release create vX.Y.Z`
+(chi tiết: `references/ban-tren-github.md`).
 
-## Install
+## Cài đặt
 
-Recommended — one command via [skills.sh](https://skills.sh):
+Khuyên dùng — 1 lệnh qua [skills.sh](https://skills.sh):
 
 ```bash
 npx skills add hedralab/eskill
@@ -87,20 +87,19 @@ Claude Code — plugin marketplace:
 /plugin install eskill
 ```
 
-Manual — copy the folder into your agent skills dir:
+Cài tay — copy thư mục vào thư mục skills của agent:
 
 ```bash
-cp -RL eskill ~/.deepseek/skills/eskill    # DeepSeek TUI (resolve symlinks)
+cp -RL eskill ~/.deepseek/skills/eskill    # DeepSeek TUI (giải symlink)
 # or ~/.claude/skills/eskill
 # or ~/.codex/skills/eskill
 ```
 
-**⚠️ Symlink:** in this repo `skills/eskill` is a symlink → `~/.deepseek/.agents/skills/eskill`.
-When copying/packaging, use `cp -RL` (or `tar -h`) to resolve it — plain `cp -R` copies the
-symlink itself and breaks the package on other machines.
+**⚠️ Symlink:** trong repo này `skills/eskill` là symlink → `~/.deepseek/.agents/skills/eskill`.
+Khi copy/đóng gói, dùng `cp -RL` (hoặc `tar -h`) để giải symlink — `cp -R` thường copy symlink
+trần, gói sang máy khác bị vỡ.
 
-## License
+## Giấy phép
 
-**Use-only.** See [LICENSE](LICENSE). You may USE this skill for personal or internal
-purposes. Modification, redistribution, and commercial use are NOT permitted; all other
-rights are reserved.
+**Use-Only (chỉ cho dùng).** Xem [LICENSE](LICENSE). Được DÙNG skill này cho mục đích cá nhân
+hoặc nội bộ. Sửa đổi, chia sẻ, và dùng thương mại KHÔNG được phép; mọi quyền khác giữ nguyên.

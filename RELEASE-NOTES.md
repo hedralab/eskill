@@ -3,6 +3,11 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [2.3.0] — 2026-08-21
+
+### Changed
+- Repo chuyển **100% tiếng Việt** (tạm thời): README · LICENSE · CODE_OF_CONDUCT · agents/openai.yaml — hết lẫn EN/VN (quyết định của user 08-21: "cho nó khỏe")
+
 ## [2.2.1] — 2026-08-21
 
 ### Fixed

@@ -1,7 +1,7 @@
 {
   "vendor": "hedralab",
   "name": "eskill",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "eSkill — meta-skill để tạo Agent Skill chuẩn top-1.",
   "plugins": [
     {

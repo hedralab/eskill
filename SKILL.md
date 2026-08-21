@@ -6,11 +6,11 @@ description: >
   và kinh nghiệm thực chiến build egram/eseed. Dùng khi cần TẠO skill mới, CẢI THIỆN skill cũ,
   validate/kiểm tra skill, chuẩn bị skill bán thương mại, hoặc khi user nói "tạo skill",
   "làm eskill", "viết SKILL.md", "skill ngon nhất".
-license: NonCommercial
+license: UseOnly
 compatibility: Python 3.10+
 metadata:
   author: hedra
-  version: "2.0.0"
+  version: "2.1.0"
 ---
 
 # eskill — Quy trình tạo Agent Skill (12 trụ cột)

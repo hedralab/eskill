@@ -33,7 +33,7 @@ building/shipping egram + the eSeed project.
 eskill/
 ├── SKILL.md                     # 12-pillar process + golden rules (Vietnamese — author-facing)
 ├── README.md                    # This file (English — public-facing)
-├── LICENSE                      # Non-commercial (custom)
+├── LICENSE                      # Use-only (custom)
 ├── RELEASE-NOTES.md             # changelog (Keep a Changelog + semver)
 ├── .version-bump.json           # current version + files to sync on bump
 ├── CODE_OF_CONDUCT.md           # contributor covenant
@@ -68,7 +68,7 @@ eskill/
 
 ## Release
 
-Version: `2.0.0` — see [RELEASE-NOTES.md](RELEASE-NOTES.md).
+Version: `2.1.0` — see [RELEASE-NOTES.md](RELEASE-NOTES.md).
 Process: edit → bump `.version-bump.json` → update RELEASE-NOTES → `gh release create vX.Y.Z`
 (details: `references/ban-tren-github.md`).
 
@@ -101,6 +101,6 @@ symlink itself and breaks the package on other machines.
 
 ## License
 
-**Non-commercial.** See [LICENSE](LICENSE). You may use, modify and share this skill for
-non-commercial purposes with attribution; commercial use (selling, or embedding it in paid
-products/services) requires prior written permission.
+**Use-only.** See [LICENSE](LICENSE). You may USE this skill for personal or internal
+purposes. Modification, redistribution, and commercial use are NOT permitted; all other
+rights are reserved.

@@ -3,6 +3,12 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [2.1.0] — 2026-08-21
+
+### Changed
+- LICENSE: Non-Commercial → **Use-Only** (chỉ cho DÙNG — không sửa, không chia sẻ, không bán; mọi quyền khác giữ nguyên)
+- README License section + tree: đồng bộ "Use-only"
+
 ## [2.0.0] — 2026-08-21
 
 ### Changed (breaking)

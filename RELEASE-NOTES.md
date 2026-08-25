@@ -3,6 +3,12 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [2.5.0] — 2026-08-25
+
+### Added
+- `references/cursor-skills.md` — kim chỉ nam Cursor Agent Skills (`create-skill`): chỗ cài `~/.cursor/skills` vs project `.cursor/skills`, **CẤM** `skills-cursor/`, description ngôi 3, `disable-model-invocation`, pin, checklist ship
+- Trụ 1 + bước 3/6 SKILL.md: dual-spec agentskills.io **+** Cursor; template ghi chú `disable-model-invocation`
+
 ## [2.4.0] — 2026-08-21
 
 ### Added

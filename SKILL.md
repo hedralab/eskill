@@ -2,15 +2,17 @@
 name: eskill
 description: >
   Skill mẹ tạo skill (meta-skill) — quy trình sản xuất Agent Skills chuẩn top-1:
-  theo spec chính thức agentskills.io, quy trình eval của anthropics/skills (skill-creator),
-  và kinh nghiệm thực chiến build egram/eseed. Dùng khi cần TẠO skill mới, CẢI THIỆN skill cũ,
-  validate/kiểm tra skill, chuẩn bị skill bán thương mại, hoặc khi user nói "tạo skill",
-  "làm eskill", "viết SKILL.md", "skill ngon nhất".
+  theo spec chính thức agentskills.io, Cursor Agent Skills (create-skill), quy trình
+  eval của anthropics/skills (skill-creator), và kinh nghiệm thực chiến build
+  egram/eseed. Dùng khi cần TẠO skill mới, CẢI THIỆN skill cũ, validate/kiểm tra
+  skill, chuẩn bị skill bán thương mại, skill cho Cursor (~/.cursor/skills), hoặc
+  khi user nói "tạo skill", "làm eskill", "viết SKILL.md", "skill ngon nhất",
+  "skill Cursor".
 license: UseOnly
 compatibility: Python 3.10+
 metadata:
   author: hedra
-  version: "2.4.0"
+  version: "2.5.0"
 ---
 
 # eskill — Quy trình tạo Agent Skill (12 trụ cột)
@@ -18,7 +20,7 @@ metadata:
 ## 12 trụ cột — mỗi trụ 1 kim chỉ nam top-1
 
 ```
-1. Core         · agentskills.io spec      — format chuẩn (frontmatter, progressive disclosure, refs 1 cấp)
+1. Core         · agentskills.io + Cursor create-skill — format, discovery, chỗ cài
 2. UX/UI        · Apple HIG                — cấu trúc skill, quickstart, naming Apple-style
 3. Validation   · agentskills.io validator — bắt lỗi sớm bằng máy
 4. Docs & Bẫy   · docs chính thức          — docs-driven HARD GATE 100% + bẫy thực chiến
@@ -38,7 +40,7 @@ metadata:
 2. `Cải thiện skill này: <đường dẫn>` → áp eval loop, tìm lỗi, sửa
 3. `Validate skill này: <đường dẫn>` → chạy validator
 
-Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specification) (spec chính thức) · `anthropics/skills` (skill-creator + template) · kinh nghiệm build egram/eseed (đã vấp và sửa).
+Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specification) · Cursor `create-skill` (`references/cursor-skills.md`) · `anthropics/skills` (skill-creator) · kinh nghiệm egram/eseed.
 
 ## 6 bước — BƯỚC 0 quan trọng nhất
 
@@ -47,14 +49,17 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
    b. **Sinh bộ file 0→n (bắt buộc — numbered-output.md)**: tạo `0-goal.txt → 1-market.txt → 2-plan.txt → 3-SKILL.md → 4-eval.md → 5-check.md → 6-observed-variables.md` + `docs/` (skeleton trước, điền dần). Ghi TỪNG câu trả lời user vào `0-goal.txt` NGAY khi nhận — state trên disk, restart/compact không mất.
    c. **Mô phỏng + quét biến số (Trụ 12 — simulation-variables.md)**: ĐỌC `6-observed-variables.md` của skill cùng họ TRƯỚC (vòng lặp khép kín — 2.2.0) → đặt vị thế người dùng → mô phỏng 5 kịch bản (chính · biên · lỗi · vòng đời · ra mắt) → quét 6 nhóm biến số (input · lỗi · vòng đời · người đọc · môi trường · quy trình) → biến số chưa phủ → mảng/Bẫy. **BẮT BUỘC ghi vào 2-plan.txt dòng `VÒNG ĐỜI: semver=…, changelog=…`** rồi mới viết. Delivery: lên GitHub → gọi `ehub` · bot Telegram → `egram` — eskill không lo. Nếu build skill bán: làm Trụ 11 (market-research.md) TRƯỚC.
 2. **Chọn kim chỉ nam**: mỗi mảng lớn = 1 chuẩn ĐÃ CHỨNG MINH, không viết theo ý kiến. Egram đã dùng: BotFather · Apple HIG · Stripe · Telegram docs · 12-Factor · GitHub Actions · Apple Writing · AARRR · OKX. Tìm nguồn: docs chính thức + `gh search repos --sort stars`. Quy trình tìm/verify/lưu đầy đủ: `references/top1-benchmark.md`.
-3. **Viết SKILL.md theo spec** (chi tiết: `references/spec-rules.md`):
-   - Frontmatter: `name` (1-64, chữ thường + gạch nối, **= tên thư mục**) · `description` ≤1024 ký tự — nêu CẢ "làm gì" LẪN "khi nào dùng", kèm trigger keyword, viết "pushy" (chống undertrigger — Claude có xu hướng không bật skill dù cần)
-   - Body < 500 dòng: mỗi mảng = **quy tắc → code mẫu → checklist** (lặp đều, đọc xong làm được ngay)
-   - Chi tiết đẩy xuống `references/` — ref **1 cấp** từ SKILL.md, đường dẫn tương đối
-   - **Bắt tay tạo file NGAY**: copy `template/SKILL.md` vào thư mục đích rồi điền dần — đọc references tối thiểu, đừng lang thang đọc hết tài liệu trước khi viết (đã vấp 2 lần: 3/5 rồi 2/3 agent dành hết budget đọc examples/* mà không tạo file — forward-test case lớn 2026-08-19). **KHÔNG mở `examples/` khi TẠO skill mới — `template/SKILL.md` là đủ**; mở `examples/` chỉ khi CẢI THIỆN skill có sẵn
-4. **Đóng gói bẫy đã biết**: mục "Bẫy — đừng lặp" — mỗi bẫy 1 dòng: triệu chứng + fix. Đây là tài sản lớn nhất của skill (agent sau không lặp 2 tiếng debug của agent trước).
-5. **Test + validate**: vòng lặp test → đánh giá → sửa (`references/eval-loop.md`) · chạy `scripts/validate-skill.py` · bán thương mại → chạy `--leak` + `references/checklist-thuong-mai.md`.
-6. **Pin kích hoạt**: skill quan trọng cho 1 project → thêm vào `.deepseek/instructions.md` của project (luôn bật, không chỉ trigger theo description).
+3. **Viết SKILL.md theo spec** (chi tiết: `references/spec-rules.md` + **Cursor**: `references/cursor-skills.md`):
+   - Frontmatter: `name` (1-64, chữ thường + gạch nối, **= tên thư mục**) · `description` ≤1024 — ngôi **thứ 3**, CẢ "làm gì" LẪN "khi nào dùng", trigger keyword, pushy chống undertrigger
+   - Cursor: quyết định `disable-model-invocation: true` (chỉ khi gọi tên) **hoặc** omit (auto từ context) — xem cursor-skills.md §3
+   - Body < 500 dòng: **quy tắc → code mẫu → checklist**; chỉ viết điều agent chưa biết (Cursor: concise)
+   - Chi tiết → `references/` — ref **1 cấp**; cài vào `~/.cursor/skills/<name>/` hoặc `<repo>/.cursor/skills/<name>/` — **CẤM** `~/.cursor/skills-cursor/`
+   - **Bắt tay tạo file NGAY**: copy `template/SKILL.md` → điền dần. **KHÔNG** mở `examples/` khi TẠO mới
+4. **Đóng gói bẫy đã biết**: mục "Bẫy — đừng lặp" — mỗi bẫy 1 dòng: triệu chứng + fix.
+5. **Test + validate**: `references/eval-loop.md` · `scripts/validate-skill.py` · Cursor smoke: session mới + câu trigger → agent đọc SKILL.md
+6. **Pin kích hoạt**:
+   - **Cursor**: personal `~/.cursor/skills/<name>` (symlink → repo GitHub) hoặc project `.cursor/skills/`; hiến pháp → rule `alwaysApply` nhắc đọc skill (`cursor-skills.md` §5)
+   - **DeepSeek** (nếu dùng): `.deepseek/instructions.md` của project
 
 ## Quy tắc vàng (học từ sai lầm egram — đừng lặp)
 
@@ -78,6 +83,7 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 ## References
 
 - `references/spec-rules.md` — Trụ 1+3: frontmatter + progressive disclosure + file refs (spec agentskills.io)
+- `references/cursor-skills.md` — Trụ 1 (Cursor): chỗ cài `~/.cursor/skills`, description ngôi 3, `disable-model-invocation`, pin, checklist ship
 - `references/naming.md` — Trụ 2: đặt tên kiểu Apple/e-family (brand ≠ prefix, `e` + 1 từ chính, ≤3 âm tiết)
 - `references/sales-discovery.md` — Trụ 10: hỏi đúng nỗi đau (SPIN + Mom Test + Gap) — skill theo ý user
 - `references/eval-loop.md` — Trụ 6: vòng lặp test prompts → eval → sửa (skill-creator Anthropic)

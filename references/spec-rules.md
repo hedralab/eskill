@@ -5,7 +5,8 @@
 | Field | Bắt buộc | Ràng buộc |
 |---|---|---|
 | `name` | ✅ | 1-64 ký tự · chỉ chữ thường + số + gạch nối `-` · không bắt đầu/kết thúc bằng `-` · không `--` · **PHẢI khớp tên thư mục** |
-| `description` | ✅ | 1-1024 ký tự · mô tả CẢ "làm gì" LẪN "khi nào dùng" · kèm trigger keyword |
+| `description` | ✅ | 1-1024 ký tự · WHAT + WHEN · trigger · **ngôi thứ 3** (Cursor) |
+| `disable-model-invocation` | Cursor tùy | `true` = chỉ khi gọi tên; omit = agent được auto-invoke |
 | `license` | tùy | tên license hoặc file LICENSE đính kèm |
 | `compatibility` | tùy | môi trường yêu cầu (≤500 ký tự) — chỉ khi thật cần |
 | `metadata` | tùy | key-value tùy ý (author, version...) |

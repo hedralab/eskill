@@ -1,12 +1,12 @@
 ---
 name: template-skill          # ← ĐỔI: chữ thường + gạch nối, PHẢI = tên thư mục (xem references/naming.md)
-description: >               # ← ĐỔI: ≤1024 ký tự — "làm gì" + "khi nào dùng" + trigger keyword, viết PUSHY
-  Mô tả skill làm gì và khi nào dùng. Nêu rõ trigger: câu chữ user hay dùng, context đi kèm.
-  Dùng khi user nói: "...", "...", hoặc làm việc với .... Dù user không gõ đúng tên skill vẫn phải bật
-  (chống undertrigger).
-# license: MIT              # ← tùy chọn: tên license (bán thương mại thì BẮT BUỘC)
-# compatibility:            # ← tùy chọn: yêu cầu môi trường (chỉ khi thật cần)
-# metadata:                 # ← tùy chọn: author, version... (đăng chợ: display_name eFamily)
+description: >               # ← ĐỔI: ≤1024 · ngôi THỨ 3 · "làm gì" + "khi nào dùng" + trigger (Cursor + agentskills)
+  Does X and Y when Z. Use when the user mentions A, B, or asks to C.
+  # Ví dụ Cursor: "Review code for quality. Use when reviewing PRs or code changes."
+# disable-model-invocation: true   # ← Cursor: bật = chỉ khi gọi tên; OMIT = agent được tự bật từ context
+# license: MIT
+# compatibility:
+# metadata:
 #   author: <your-name>
 #   version: "1.0"
 ---

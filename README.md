@@ -17,6 +17,7 @@ egram + dự án eSeed.
 - **Quy tắc spec**: frontmatter (name/description/license/compatibility/metadata),
   progressive disclosure (<500 dòng), refs 1 cấp
 - **Eval loop**: forward-test bằng prompt giả lập user thật, đánh giá định tính + định lượng
+- **Đội chuyên gia**: theo việc skill làm, 2 spawn/lượt — **không** đúc vai generic, **không** gọi eprompt
 - **Đặt tên** (e-family kiểu Apple: `e` + 1 từ chính — eSkill, eSeed, egram)
 - **Validator**: `scripts/validate-skill.py` — bắt frontmatter hỏng, tên sai, refs vỡ,
   SKILL.md quá dài, và rò rỉ (`--leak --brand`)
@@ -45,6 +46,8 @@ eskill/
 ├── template/SKILL.md            # khung SKILL.md copy dùng ngay (frontmatter đủ field)
 ├── references/
 │   ├── spec-rules.md            # quy tắc spec agentskills.io
+│   ├── cursor-skills.md         # Cursor Agent Skills (create-skill) — chỗ cài + discovery
+│   ├── experts.md               # đội chuyên gia theo việc; 2 spawn/lượt; cấm eprompt
 │   ├── naming.md                # đặt tên e-family kiểu Apple
 │   ├── sales-discovery.md       # SPIN + Mom Test (phỏng vấn bước 0)
 │   ├── top1-benchmark.md        # Trụ 2: tìm + verify kim chỉ nam top-1
@@ -68,7 +71,7 @@ eskill/
 
 ## Release
 
-Version: `2.4.0` — xem [RELEASE-NOTES.md](RELEASE-NOTES.md).
+Version: `2.8.0` — xem [RELEASE-NOTES.md](RELEASE-NOTES.md).
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật RELEASE-NOTES → `gh release create vX.Y.Z`
 (chi tiết: `references/ban-tren-github.md`).
 

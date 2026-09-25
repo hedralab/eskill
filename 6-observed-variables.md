@@ -2,6 +2,13 @@
 
 Đọc file này TRƯỚC khi scan biến số (Trụ 12 Bước 0) — nhất là khi build skill cùng họ e-family.
 
+## [2026-08-29] [e-family pipeline] I/O path — nhóm INPUT + QUY TRÌNH
+- Triệu chứng: preflight FAIL mơ hồ; skill copy bảng path trùng nhau; relative `engine/output` + cwd skill → folder sai
+- Quy tắc: **1 file SoT** `{project}/docs/io-contract.md` — skill chỉ trỏ § IN/OUT, không duplicate bảng
+- Skill scaffold: **etool** v1.1 — `benchmark-*.md` từng mảng · eup chỉ `analogy-eup-layers.md`
+- Channel mẫu: egram/eup/ethreads/ecut trỏ io-contract
+- Câu hỏi bắt buộc: "PROJECT_ROOT vs EUP_ROOT — clip folder thuộc repo nào?" · "Đã chạy etool/layout_check chưa?"
+
 ## [2026-08-21] [ehub] license — nhóm QUY TRÌNH
 - Triệu chứng: ehub hardcode MIT; user đổi eskill MIT→Non-Commercial→Use-Only 3 lần sau khi push
 - Quy tắc/Bẫy đã thêm: ehub Bước 1 hỏi license (--license mit/non-commercial/use-only/all-rights) — không default im lặng (ehub 1.4.0)
@@ -21,3 +28,8 @@
 - Triệu chứng: rsync --delete mirror live vô tình xóa .gitignore khỏi repo GitHub (live skill không có file này)
 - Quy tắc/Bẫy đã thêm: sync repo = so diff trước, đừng --delete mù; skill live nên có .gitignore (ehub 1.4.1)
 - Câu hỏi bắt buộc: "File nào repo cần nhưng live skill không có? (gitignore, CHANGELOG...)"
+
+## [2026-08-27] [eskill] eprompt khi build skill — nhóm QUY TRÌNH
+- Triệu chứng: user bảo “gọi đội chuyên gia” lúc eskill → agent mở eprompt; ecap SKILL trỏ “sửa recipe → gọi eprompt”.
+- Quy tắc/Bẫy: đội = chuyên gia theo việc skill (`references/experts.md`). 2 spawn/lượt. Cấm đúc Gọn/Hiệu quả/Eval. CẤM gọi eprompt. Eval = bước 5 eskill.
+- Câu hỏi bắt buộc: “Skill này biến IN thành OUT — cần chuyên gia việc gì?”

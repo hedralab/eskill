@@ -3,6 +3,22 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [2.8.0] — 2026-08-27
+
+### Changed
+- Đội chuyên gia = người giỏi **việc skill đó** (copy, hashtag, cookie…). Cấm đúc Gọn/Hiệu quả/Eval. Eval = bước 5. Vẫn 2 spawn/lượt.
+
+## [2.7.0] — 2026-08-27
+
+### Changed
+- Đội chuyên gia **≥4 vai** (Gọn · Hiệu quả · Vận hành · Eval). Vẫn **2/lượt** — không spawn 4–10 cùng lúc
+
+## [2.6.0] — 2026-08-27
+
+### Added
+- `references/experts.md` — đội chuyên gia 2 vai (Gọn · Hiệu quả) nằm **trong eskill**
+- SKILL.md: CẤM gọi eprompt khi TẠO/CẢI THIỆN skill; user “gọi đội chuyên gia” = spawn 2 vai eskill
+
 ## [2.5.0] — 2026-08-25
 
 ### Added

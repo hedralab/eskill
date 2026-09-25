@@ -12,7 +12,7 @@ license: UseOnly
 compatibility: Python 3.10+
 metadata:
   author: hedra
-  version: "2.5.0"
+  version: "2.8.0"
 ---
 
 # eskill — Quy trình tạo Agent Skill (12 trụ cột)
@@ -72,7 +72,9 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 
 - **Bộ file 0→n BẮT BUỘC, TỰ ĐỘNG (học egram — 0-logic → 5-month)**: ngay khi bắt đầu, agent TỰ TẠO bộ file đánh số trong thư mục dự án (skill: 0-goal → 1-market → 2-plan → 3-SKILL.md → 4-eval → 5-check; dự án khác: 0-goal → 1-plan → ... theo thứ tự build) — skeleton trước, điền dần. MỌI câu trả lời user ghi vào file NGAY khi nhận, không giữ trong hội thoại (state trên disk — restart/compact không mất). Mỗi bước xong → cập nhật file tương ứng; user duyệt từng lớp trước khi sang lớp sau; máy kiểm tra được (đủ file? thiếu file nào?). Chi tiết: `references/numbered-output.md`
 
-- **Chạy đội agent tối đa 2/lượt**: agent con ghi kết quả GỌN vào file .md đánh số, /compact giữa lượt, CẤM spawn lồng nhau — spawn 4-10 song song làm treo UI (đã vấp 2026-08-20; chi tiết: `references/eval-loop.md`)
+- **Đội chuyên gia theo việc skill**, tối đa **2 spawn/lượt** (treo UI nếu 4–10 cùng lúc, 2026-08-20). Lập danh sách từ IN→OUT trong `2-plan.txt` — **cấm** đúc sẵn Gọn/Hiệu quả/Vận hành/Eval. Eval = bước 5 eskill, không phải ghế đội. Ghi `docs/expert-<việc>.md`. Chi tiết: [experts](references/experts.md) · [eval-loop](references/eval-loop.md). **CẤM gọi eprompt**. User nói “gọi đội chuyên gia” = chuyên gia đúng việc skill này.
+
+- **CẤM gọi eprompt khi build skill** (2026-08-27): nhảy sang eprompt, hoặc đúc đội Gọn/Hiệu quả/Eval. Fix: đội = chuyên gia theo việc; 2/lượt; eval = bước eskill.
 
 ## Giới hạn (trung thực — khi nào KHÔNG dùng)
 
@@ -86,7 +88,8 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 - `references/cursor-skills.md` — Trụ 1 (Cursor): chỗ cài `~/.cursor/skills`, description ngôi 3, `disable-model-invocation`, pin, checklist ship
 - `references/naming.md` — Trụ 2: đặt tên kiểu Apple/e-family (brand ≠ prefix, `e` + 1 từ chính, ≤3 âm tiết)
 - `references/sales-discovery.md` — Trụ 10: hỏi đúng nỗi đau (SPIN + Mom Test + Gap) — skill theo ý user
-- `references/eval-loop.md` — Trụ 6: vòng lặp test prompts → eval → sửa (skill-creator Anthropic)
+- [eval-loop](references/eval-loop.md) — Trụ 6: vòng lặp test prompts → eval → sửa (skill-creator Anthropic)
+- [experts](references/experts.md) — đội theo việc skill; 2 spawn/lượt — **không** đúc vai generic, **không** gọi eprompt
 - `references/test-prompts-template.md` — Trụ 6: 5 kiểu test prompt giả lập user thật (chính/biên/sai/nhanh/lớn)
 - `references/rubric.md` — Trụ 6: tiêu chí pass/fail mã hóa TRƯỚC (4 loại: artifact · string · behavior · LLM-judge)
 - `references/docs-driven.md` — Trụ 4: docs là HARD GATE 100% (không docs = không code, yêu cầu user đưa)

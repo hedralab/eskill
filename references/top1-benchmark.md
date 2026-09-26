@@ -22,6 +22,11 @@ Skill viết theo "cảm giác đúng" = skill mơ hồ, agent làm theo kiến 
 4. **Lưu kết quả** — 2 nơi:
    - `references/benchmark-<mảng>.md` — 1 trang: tên chuẩn + vì sao top-1 (đạt tiêu chí nào) + URL nguồn + ngày verify
    - SKILL.md (mục tương ứng) — 1 dòng: "kim chỉ nam: X — xem references/benchmark-X.md"
+5. **Gương soi họ (2.9.0)** — chọn xong chuẩn, 3 dòng vào `2-plan.txt` (chi tiết: simulation-variables.md § Gương soi):
+   - `HỌ NGHĨ:` ràng buộc nào họ tối ưu?
+   - `HỌ LÀM ĐƯỢC:` điều kiện nào (docs, constraint, dogfood)?
+   - `NẾU LÀ HỌ:` skill này sẽ CẤM điều gì?
+   Copy chuẩn mà bỏ 3 dòng = copy hình thức.
 
 ## Checklist
 
@@ -30,3 +35,4 @@ Skill viết theo "cảm giác đúng" = skill mơ hồ, agent làm theo kiến 
 - [ ] Verify ≥ 2 nguồn độc lập (docs chính thức + adoption thật)
 - [ ] File `benchmark-<mảng>.md` có: tên + lý do + URL + ngày
 - [ ] SKILL.md ghi 1 dòng kim chỉ nam mỗi mảng
+- [ ] `2-plan.txt` có 3 dòng Gương soi họ (HỌ NGHĨ / HỌ LÀM ĐƯỢC / NẾU LÀ HỌ)

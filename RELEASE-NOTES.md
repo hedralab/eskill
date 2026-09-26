@@ -3,6 +3,15 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com) — version semver, mỗi bản 1 mục.
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật mục này → `gh release create vX.Y.Z`.
 
+## [2.9.0] — 2026-09-26
+
+### Added
+- Trụ 12 **Gương soi** (`simulation-variables.md`): checklist 2 lớp trước khi viết SKILL.md — lớp mình (bản chất · bằng chứng · thời gian · SWOT) + lớp họ (vì sao nghĩ vậy · điều kiện làm được · nếu mình là họ thì cấm gì). Agent tự soi, không hỏi user thêm. Bắt buộc các dòng `GƯƠNG SOI:` trong `2-plan.txt`.
+- `top1-benchmark.md` bước 5: 3 dòng Gương soi họ sau khi chọn kim chỉ nam — hết copy HIG/Stripe/12-Factor hình thức.
+
+### Changed
+- BƯỚC 0c + numbered-output + SKILL.md Quy tắc vàng: thiếu `GƯƠNG SOI:` = chưa draft. SoT cập nhật = skill Cursor `~/.cursor/skills/eskill` (repo GitHub cùng cây).
+
 ## [2.8.0] — 2026-08-27
 
 ### Changed

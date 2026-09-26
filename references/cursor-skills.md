@@ -12,7 +12,7 @@ Dùng khi skill đích chạy trên **Cursor Agent** (personal `~/.cursor/skills
 | **Project** | `<repo>/.cursor/skills/<name>/` | Chỉ repo đó (commit cùng repo) |
 | **CẤM** | `~/.cursor/skills-cursor/` | Reserved — Cursor built-in, hệ thống quản |
 
-Canonical e-family: repo GitHub (vd `Projects/e-family/<skill>`) + **symlink** `~/.cursor/skills/<name> → repo` (như egram). Đừng copy 2 bản lệch nhau.
+Canonical e-family: **SoT = skill Cursor** `~/.cursor/skills/<name>/` (repo GitHub nằm cùng cây hoặc symlink tới đó). Sửa skill = sửa chỗ Cursor đọc. Đừng sửa bản copy trong workspace brand rồi giả định Cursor tự ăn theo.
 
 ## 2. Description — discovery trong Cursor
 

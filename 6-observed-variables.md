@@ -2,6 +2,11 @@
 
 Đọc file này TRƯỚC khi scan biến số (Trụ 12 Bước 0) — nhất là khi build skill cùng họ e-family.
 
+## [2026-09-26] [eskill] copy kim chỉ nam hình thức — nhóm QUY TRÌNH
+- Triệu chứng: agent lấy HIG/Stripe/12-Factor rồi viết skill theo hình thức; không hỏi vì sao họ nghĩ vậy, điều kiện nào giúp họ làm được, nếu mình là họ thì cấm gì
+- Quy tắc/Bẫy đã thêm: Gương soi 2 lớp (2.9.0) — lớp mình (bản chất · bằng chứng · thời gian · SWOT) + lớp họ (HỌ NGHĨ / HỌ LÀM ĐƯỢC / NẾU LÀ HỌ). Ghi `2-plan.txt` trước khi draft. Không hỏi user 9 câu thêm
+- Câu hỏi bắt buộc: "Kim chỉ nam này tối ưu ràng buộc nào? Skill này phải CẤM điều gì nếu mình là họ?"
+
 ## [2026-08-29] [e-family pipeline] I/O path — nhóm INPUT + QUY TRÌNH
 - Triệu chứng: preflight FAIL mơ hồ; skill copy bảng path trùng nhau; relative `engine/output` + cwd skill → folder sai
 - Quy tắc: **1 file SoT** `{project}/docs/io-contract.md` — skill chỉ trỏ § IN/OUT, không duplicate bảng

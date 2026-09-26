@@ -10,8 +10,8 @@ egram + dự án eSeed.
 - **Quy trình 12 trụ**: Core (spec agentskills.io) · UX (Apple HIG) · Validation · Docs & Bẫy ·
   Vận hành (12-Factor) · Eval (skill-creator) · Nội dung (Apple Writing) · Tăng trưởng (AARRR) ·
   Thương mại · Tư vấn (SPIN + Mom Test) · Thị trường (JTBD) ·
-  **Simulation & Variable Scan** (đặt vị thế người dùng → mô phỏng 5 kịch bản →
-  quét 6 nhóm biến số trước khi viết)
+  **Simulation & Variable Scan + Gương soi** (đặt vị thế user → mô phỏng 5 kịch bản →
+  quét 6 nhóm biến số → soi mình + soi họ trước khi viết)
 - **Workflow bộ file 0→n**: mỗi lần build sinh 0-goal → 1-market → 2-plan → 3-SKILL.md →
   4-eval → 5-check → 6-observed-variables + docs/ — state trên disk, duyệt từng lớp
 - **Quy tắc spec**: frontmatter (name/description/license/compatibility/metadata),
@@ -51,7 +51,7 @@ eskill/
 │   ├── naming.md                # đặt tên e-family kiểu Apple
 │   ├── sales-discovery.md       # SPIN + Mom Test (phỏng vấn bước 0)
 │   ├── top1-benchmark.md        # Trụ 2: tìm + verify kim chỉ nam top-1
-│   ├── simulation-variables.md  # Trụ 12: mô phỏng + quét biến số
+│   ├── simulation-variables.md  # Trụ 12: mô phỏng + quét biến số + Gương soi
 │   ├── numbered-output.md       # workflow bộ file 0→n + docs/ (state trên disk)
 │   ├── eval-loop.md             # vòng test → đánh giá → sửa
 │   ├── test-prompts-template.md # 5 kiểu test prompt
@@ -71,7 +71,7 @@ eskill/
 
 ## Release
 
-Version: `2.8.0` — xem [RELEASE-NOTES.md](RELEASE-NOTES.md).
+Version: `2.9.0` — xem [RELEASE-NOTES.md](RELEASE-NOTES.md).
 Quy trình: sửa xong → bump `.version-bump.json` → cập nhật RELEASE-NOTES → `gh release create vX.Y.Z`
 (chi tiết: `references/ban-tren-github.md`).
 

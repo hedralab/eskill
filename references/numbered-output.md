@@ -10,7 +10,7 @@ Ngay khi bắt đầu làm việc với bất kỳ dự án nào (skill / bot / 
 
 - 0-goal.txt — GỐC: câu trả lời BƯỚC 0 (SPIN + Mom Test). Ghi NGAY từng câu khi user trả lời.
 - 1-market.txt — Trụ 11: người mua + nỗi đau + đối thủ + giá (research 1 trang)
-- 2-plan.txt — Section 7: kết luận 1 trang (ANSWER → SCQA → MECE → rủi ro → **biến số đã quét Trụ 12 — BẮT BUỘC dòng `VÒNG ĐỜI: semver=…, changelog=…`** → next actions)
+- 2-plan.txt — Section 7: kết luận 1 trang (ANSWER → SCQA → MECE → rủi ro → **biến số đã quét Trụ 12 — BẮT BUỘC dòng `VÒNG ĐỜI: semver=…, changelog=…` + các dòng `GƯƠNG SOI:` (2.9.0)** → next actions)
 - 3-SKILL.md — draft theo spec (frontmatter, <500 dòng, refs 1 cấp)
 - 4-eval.md — 5 test prompt + rubric TRƯỚC khi chạy eval
 - 5-check.md — checklist thương mại (leak scan, LICENSE, README đồng bộ)
@@ -72,7 +72,7 @@ touch 0-logic.txt 1-menu.txt 2-seed.txt 3-daily.txt 4-week.txt 5-month.txt
 - [ ] Bộ file 0→n đã sinh trong thư mục dự án (skeleton) — KHÔNG đợi user hỏi
 - [ ] 0-goal.txt có câu trả lời THẬT của user (không phải suy diễn model)
 - [ ] (skill bán) 1-market.txt đủ: người mua + nỗi đau + 2 đối thủ + giá
-- [ ] (skill bán) 2-plan.txt 1 trang: ANSWER đầu tiên + MECE + rủi ro + next actions
+- [ ] (skill bán) 2-plan.txt 1 trang: ANSWER đầu tiên + MECE + rủi ro + `VÒNG ĐỜI:` + `GƯƠNG SOI:` + next actions
 - [ ] (skill bán) 3-SKILL.md draft xong → validate PASS
 - [ ] (skill bán) 4-eval.md có 5 test prompt + rubric
 - [ ] (skill bán) 5-check.md: leak scan + LICENSE + README đồng bộ

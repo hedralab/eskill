@@ -1,19 +1,44 @@
 # Simulation & Variable Scan — logic gốc rễ (Trụ 12)
 
-Trước khi build, ĐẶT VỊ THẾ người dùng → MÔ PHỎNG kịch bản → QUÉT MỌI BIẾN SỐ → rồi mới viết. Mục tiêu: skill tạo ra không sót biến số (học từ 2 bẫy thật khi build ehub 2026-08-21).
+Trước khi build, ĐẶT VỊ THẾ người dùng → MÔ PHỎNG kịch bản → QUÉT MỌI BIẾN SỐ → **GƯƠNG SOI** (mình + họ) → rồi mới viết. Mục tiêu: skill không sót biến số và không copy kim chỉ nam hình thức (học từ 2 bẫy ehub 2026-08-21 + copy chuẩn không hiểu 2026-09-26).
 
 ## Vì sao (2 bẫy đã vấp — ehub)
 
 1. **Quên biến số vòng đời** — build xong mới phát hiện "đẩy lên GitHub cần quy tắc phiên bản" → phải bổ sung semver/changelog/release sau
 2. **Quên biến số người đọc** — output (README/tin nhắn/báo cáo) viết thuần khô, người dùng không hiểu nổi giá trị → phải viết lại theo inside + bố trí
 
-## Quy trình 5 bước (chạy TRƯỚC khi viết SKILL.md)
+## Quy trình 6 bước (chạy TRƯỚC khi viết SKILL.md)
 
 1. **Đặt vị thế người dùng** — persona + giai đoạn vòng đời: dùng lần đầu / hằng ngày / nâng cấp / ra mắt / gặp lỗi
 2. **Mô phỏng 5 kịch bản** — chính (luồng chính) · biên (trigger/cạnh) · lỗi (error path) · vòng đời (update/version/release) · ra mắt (người đọc/output)
-3. **Quét biến số 5 nhóm** (checklist dưới) — liệt kê HẾT, đừng dừng ở hiển nhiên
+3. **Quét biến số 6 nhóm** (checklist dưới) — liệt kê HẾT, đừng dừng ở hiển nhiên
 4. **Đối chiếu độ phủ** — biến số nào skill đã xử lý? chưa → thành mảng mới hoặc Bẫy trong SKILL.md
-5. **Ghi vào 2-plan.txt** — biến số + cách xử lý, TRƯỚC khi viết draft
+5. **Gương soi 2 lớp (2.9.0)** — agent tự hỏi, **không hỏi user thêm** (SPIN vẫn tối đa 6). Thiếu dòng → chưa viết.
+6. **Ghi vào 2-plan.txt** — biến số + `VÒNG ĐỜI:` + `GƯƠNG SOI:` , TRƯỚC khi viết draft
+
+## Gương soi — 2 lớp, 1 dòng/câu (2.9.0)
+
+SPIN hỏi **user**. Gương soi bắt **agent** soi mình rồi soi người mình đang học. Không thêm trụ 13.
+
+**Lớp mình** (việc sắp build):
+
+| # | Hỏi | Ghi 1 dòng vào `2-plan.txt` |
+|---|---|---|
+| 1 | Ta có đang hiểu bản chất / làm thế nào? | `GƯƠNG SOI: BẢN CHẤT: …` (1 câu) |
+| 2 | Quyết định này dựa trên thông tin nào? | `GƯƠNG SOI: BẰNG CHỨNG: …` (file/docs/số — không trí nhớ model) |
+| 3 | Ai sẽ giúp? | đã có `experts.md` — khỏi ghi nếu đội đã liệt kê |
+| 4 | Ta làm được điều này trong bao lâu? | `GƯƠNG SOI: THỜI GIAN: bản 1 = …` |
+| 5–6 | Điểm mạnh / yếu · cơ hội / rủi | `GƯƠNG SOI: SWOT: +… / −… / cơ hội… / rủi…` (1 mỗi ô) |
+
+**Lớp họ** (sau khi chọn kim chỉ nam — Trụ 2):
+
+| # | Hỏi | Ghi 1 dòng vào `2-plan.txt` |
+|---|---|---|
+| 7 | Tại sao họ tư duy được như vậy? | `GƯƠNG SOI: HỌ NGHĨ: ràng buộc họ tối ưu = …` |
+| 8 | Nguyên nhân nào giúp họ làm được? | `GƯƠNG SOI: HỌ LÀM ĐƯỢC: docs / constraint / dogfood = …` |
+| 9 | Nếu mình là họ, mình sẽ tư duy thế nào? | `GƯƠNG SOI: NẾU LÀ HỌ: skill này CẤM …` |
+
+Copy HIG/Stripe/12-Factor mà bỏ 7–9 = copy hình thức. Pre-mortem (kịch bản hỏng) ≠ SWOT (mạnh/yếu/cơ hội/rủi của *skill này*).
 
 ## Bước 0 — đọc evidence THỰC TẾ trước khi scan (vòng lặp khép kín — 2.2.0)
 

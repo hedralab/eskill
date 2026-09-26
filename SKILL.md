@@ -12,7 +12,7 @@ license: UseOnly
 compatibility: Python 3.10+
 metadata:
   author: hedra
-  version: "2.8.0"
+  version: "2.9.0"
 ---
 
 # eskill — Quy trình tạo Agent Skill (12 trụ cột)
@@ -31,7 +31,7 @@ metadata:
 9. Thương mại   · OKX                      — leak scan, LICENSE, marketplace, PnL bán skill
 10. Tư vấn      · SPIN + Mom Test          — hỏi đúng nỗi đau, skill theo đúng ý user
 11. Thị trường · JTBD + Mom Test + Demand Validation — research trước, build sau
-12. Logic gốc   · Pre-mortem + Simulation  — đặt vị thế người dùng, mô phỏng, quét MỌI biến số trước khi build
+12. Logic gốc   · Pre-mortem + Simulation + Gương soi — vị thế user + họ, mô phỏng, quét biến số
 ```
 
 ## Quickstart (3 câu — user mới bắt đầu từ đây)
@@ -47,7 +47,7 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 1. **BƯỚC 0 — Tư vấn → sinh file → quét biến số (Trụ 10 + 12)**, làm tuần tự 3 việc:
    a. **Hỏi đúng (Trụ 10 — sales-discovery.md)**: trích mục tiêu từ hội thoại hiện có (tool đã dùng, input/output, lỗi user sửa). Hỏi 1 câu/lượt, tối đa 6 câu SPIN + Mom Test; thêm 1 câu persona nếu dự án public (bán / portfolio / dev / nội bộ). Tóm tắt gap → user XÁC NHẬN trước khi viết. Auto-mode (không có user): tự quyết rồi TIẾN HÀNH — đừng kẹt chờ hỏi (đã vấp: agent kẹt cứng ở BƯỚC 0 — forward-test 2026-08-19).
    b. **Sinh bộ file 0→n (bắt buộc — numbered-output.md)**: tạo `0-goal.txt → 1-market.txt → 2-plan.txt → 3-SKILL.md → 4-eval.md → 5-check.md → 6-observed-variables.md` + `docs/` (skeleton trước, điền dần). Ghi TỪNG câu trả lời user vào `0-goal.txt` NGAY khi nhận — state trên disk, restart/compact không mất.
-   c. **Mô phỏng + quét biến số (Trụ 12 — simulation-variables.md)**: ĐỌC `6-observed-variables.md` của skill cùng họ TRƯỚC (vòng lặp khép kín — 2.2.0) → đặt vị thế người dùng → mô phỏng 5 kịch bản (chính · biên · lỗi · vòng đời · ra mắt) → quét 6 nhóm biến số (input · lỗi · vòng đời · người đọc · môi trường · quy trình) → biến số chưa phủ → mảng/Bẫy. **BẮT BUỘC ghi vào 2-plan.txt dòng `VÒNG ĐỜI: semver=…, changelog=…`** rồi mới viết. Delivery: lên GitHub → gọi `ehub` · bot Telegram → `egram` — eskill không lo. Nếu build skill bán: làm Trụ 11 (market-research.md) TRƯỚC.
+   c. **Mô phỏng + quét biến số + Gương soi (Trụ 12 — simulation-variables.md)**: ĐỌC `6-observed-variables.md` của skill cùng họ TRƯỚC → đặt vị thế người dùng → mô phỏng 5 kịch bản → quét 6 nhóm biến số → **Gương soi 2 lớp** (mình: bản chất · bằng chứng · thời gian · SWOT; họ: vì sao nghĩ vậy · điều kiện làm được · nếu mình là họ thì cấm gì) — agent tự soi, **không hỏi user thêm**. Ghi `2-plan.txt`: `VÒNG ĐỜI: semver=…, changelog=…` + các dòng `GƯƠNG SOI:` rồi mới viết. Delivery: GitHub → `ehub` · Telegram → `egram`. Skill bán: Trụ 11 TRƯỚC.
 2. **Chọn kim chỉ nam**: mỗi mảng lớn = 1 chuẩn ĐÃ CHỨNG MINH, không viết theo ý kiến. Egram đã dùng: BotFather · Apple HIG · Stripe · Telegram docs · 12-Factor · GitHub Actions · Apple Writing · AARRR · OKX. Tìm nguồn: docs chính thức + `gh search repos --sort stars`. Quy trình tìm/verify/lưu đầy đủ: `references/top1-benchmark.md`.
 3. **Viết SKILL.md theo spec** (chi tiết: `references/spec-rules.md` + **Cursor**: `references/cursor-skills.md`):
    - Frontmatter: `name` (1-64, chữ thường + gạch nối, **= tên thư mục**) · `description` ≤1024 — ngôi **thứ 3**, CẢ "làm gì" LẪN "khi nào dùng", trigger keyword, pushy chống undertrigger
@@ -69,6 +69,7 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 - **Smoke test đóng gói**: 1 script chạy 1 lệnh = bằng chứng skill hoạt động, không cần tin lời.
 - **Sanitize trước khi public**: grep secret/path/brand/chat_id/token — làm hệ thống, không làm tay (egram lộ chat_id thật + path home cá nhân khi chuẩn bị bán (bài học: thay placeholder `<chat_id>`, `<project_root>`)).
 - **Đổi tên/version đồng bộ mọi file**: README/SKILL/frontmatter — validate chéo (egram v1 README ghi "8 trụ/Hedragram" khi skill đã 9 trụ/egram).
+- **Gương soi trước khi viết (2.9.0)**: thiếu dòng `GƯƠNG SOI:` trong `2-plan.txt` = chưa hiểu bản chất hoặc đang copy kim chỉ nam hình thức — DỪNG, soi xong mới draft. Không hỏi user 9 câu thêm (SPIN vẫn tối đa 6).
 
 - **Bộ file 0→n BẮT BUỘC, TỰ ĐỘNG (học egram — 0-logic → 5-month)**: ngay khi bắt đầu, agent TỰ TẠO bộ file đánh số trong thư mục dự án (skill: 0-goal → 1-market → 2-plan → 3-SKILL.md → 4-eval → 5-check; dự án khác: 0-goal → 1-plan → ... theo thứ tự build) — skeleton trước, điền dần. MỌI câu trả lời user ghi vào file NGAY khi nhận, không giữ trong hội thoại (state trên disk — restart/compact không mất). Mỗi bước xong → cập nhật file tương ứng; user duyệt từng lớp trước khi sang lớp sau; máy kiểm tra được (đủ file? thiếu file nào?). Chi tiết: `references/numbered-output.md`
 
@@ -106,4 +107,4 @@ Nguồn chuẩn: [agentskills.io/specification](https://agentskills.io/specifica
 - `references/market-research.md` — Trụ 11: research trước build sau (nỗi đau user, kênh phân phối, pricing, demand validation)
 - `references/numbered-output.md` — pattern file 0→n (học từ egram): sinh tự động, ghi ngay, duyệt từng lớp + thư mục `docs/` tủ tài liệu dự án
 - `references/top1-benchmark.md` — Trụ 2: quy trình tìm + verify + lưu kim chỉ nam top-1 (tiêu chí → 3+ ứng viên → 2 nguồn độc lập → benchmark file)
-- `references/simulation-variables.md` — Trụ 12: đặt vị thế → mô phỏng 5 kịch bản → quét 5 nhóm biến số → khung kiểm tra output (inside + bố trí)
+- `references/simulation-variables.md` — Trụ 12: đặt vị thế → mô phỏng 5 kịch bản → quét biến số → Gương soi 2 lớp (2.9.0) → khung kiểm tra output
